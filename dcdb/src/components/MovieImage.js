@@ -14,11 +14,14 @@ class MovieImage extends React.Component {
   };
 
   render() {
-    const { backdrop_path } = this.state.movie;
+    const { backdrop_path, original_title } = this.state.movie;
 
     return (
       <div>
-        <img src={"http://image.tmdb.org/t/p/w300" + backdrop_path} />
+        <img
+          alt={original_title}
+          src={"http://image.tmdb.org/t/p/w300" + backdrop_path}
+        />
       </div>
     );
   }
