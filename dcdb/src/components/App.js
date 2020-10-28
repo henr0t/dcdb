@@ -1,8 +1,13 @@
 import React from "react";
+import MovieImage from "./MovieImage";
 
 class App extends React.Component {
   render() {
-    return <div>Hello World</div>;
+    return (
+      <div>
+        <MovieImage movieId="49521" />
+      </div>
+    );
   }
 }
 
