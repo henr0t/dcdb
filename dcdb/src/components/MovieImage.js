@@ -4,10 +4,6 @@ import tmdb from "../api/tmdb";
 class MovieImage extends React.Component {
   state = { movie: [] };
 
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     this.getData(this.props.movieId);
   }
