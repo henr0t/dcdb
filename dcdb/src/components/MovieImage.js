@@ -17,12 +17,11 @@ class MovieImage extends React.Component {
     const { backdrop_path, original_title } = this.state.movie;
 
     return (
-      <div>
-        <img
-          alt={original_title}
-          src={"http://image.tmdb.org/t/p/w300" + backdrop_path}
-        />
-      </div>
+      <img
+        className="d-block w-100"
+        alt={original_title}
+        src={"http://image.tmdb.org/t/p/w1280" + backdrop_path}
+      />
     );
   }
 }
