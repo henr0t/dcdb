@@ -39,6 +39,15 @@ const movieList = [
     movieId: "495764",
     movie: "8",
   },
+  {
+    title: "Wonder Woman 1984",
+    movieId: "464052",
+    movie: "9",
+  },
+  {
+    title: "The Suicide Squad",
+    movieId: "436969",
+    movie: "10",
+  },
 ];
-
 export default movieList;
