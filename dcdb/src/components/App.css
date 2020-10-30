@@ -2,3 +2,30 @@ body {
   background-color: #181818;
   color: white;
 }
+
+/*flexbox*/
+.center-position {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 5px;
+}
+
+.segment {
+  display: flex;
+  flex-flow: column nowrap;
+  margin-bottom: 15px;
+}
+
+.main-display {
+  align-items: center;
+  padding: 0px;
+  max-width: 960px;
+}
+
+.text-box {
+  background-color: black;
+  padding: 30px;
+  max-width: 960px;
+}
