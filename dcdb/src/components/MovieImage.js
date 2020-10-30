@@ -1,5 +1,6 @@
 import React from "react";
 import tmdb from "../api/tmdb";
+import { Link } from "react-router-dom";
 
 class MovieImage extends React.Component {
   state = { movie: [] };
@@ -17,11 +18,15 @@ class MovieImage extends React.Component {
     const { backdrop_path, original_title } = this.state.movie;
 
     return (
-      <img
-        className="d-block w-100"
-        alt={original_title}
-        src={"http://image.tmdb.org/t/p/w1280" + backdrop_path}
-      />
+      <React.Fragment>
+        <Link to={"/movie/" + original_title}>
+          <img
+            className="d-block w-100"
+            alt={original_title}
+            src={"http://image.tmdb.org/t/p/w1280" + backdrop_path}
+          />
+        </Link>
+      </React.Fragment>
     );
   }
 }
