@@ -4,14 +4,6 @@ body {
 }
 
 /*flexbox*/
-.center-position {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
-  padding: 0px 5px;
-}
-
 .segment {
   display: flex;
   flex-flow: column nowrap;
