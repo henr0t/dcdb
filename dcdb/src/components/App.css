@@ -56,6 +56,15 @@ hr.title {
   border: solid #383838;
   border-radius: 20px;
   border-width: thin;
+  transition: 0.5s ease;
+}
+
+.expand-text {
+  text-align: center;
+  font-size: 14px;
+}
+.movie-poster:hover {
+  opacity: 0.5;
 }
 
 .movie-synopsis {

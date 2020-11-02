@@ -27,15 +27,16 @@ const MovieDetails = (props) => {
     <div>
       <div className="movie-segment">
         <div className="movie-segment1">
-          <div>
+          <picture>
             <a href={"http://image.tmdb.org/t/p/original" + poster_path}>
               <img
                 className="movie-poster"
                 alt={original_title}
                 src={"http://image.tmdb.org/t/p/w300" + poster_path}
               />
+              <div className="expand-text">Click to expand</div>
             </a>
-          </div>
+          </picture>
           <div className="movie-synopsis">
             <h1>
               {original_title} <small>({release_year})</small>
