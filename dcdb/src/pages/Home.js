@@ -2,7 +2,7 @@ import React from "react";
 import ImageCarousel from "../components/ImageCarousel";
 
 export const Home = () => (
-  <div className="center-position">
+  <div>
     <div className="segment main-display">
       <ImageCarousel />
     </div>

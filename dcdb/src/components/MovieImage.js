@@ -6,20 +6,17 @@ class MovieImage extends React.Component {
   state = { movie: [] };
 
   componentDidMount() {
-    this.getData(this.props.movieId);
+    tmdb.get("/movie/" + this.props.movieId).then((response) => {
+      this.setState({ movie: response.data });
+    });
   }
 
-  getData = async (movieId) => {
-    const response = await tmdb.get("/movie/" + movieId);
-    this.setState({ movie: response.data });
-  };
-
   render() {
-    const { backdrop_path, original_title } = this.state.movie;
+    const { backdrop_path, original_title, id } = this.state.movie;
 
     return (
       <React.Fragment>
-        <Link to={"/movie/" + original_title}>
+        <Link to={"/movie/" + id}>
           <img
             className="d-block w-100"
             alt={original_title}
