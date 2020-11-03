@@ -1,5 +1,5 @@
 body {
-  background-color: #c6c6c2;
+  background-color: #f3f3f3;
   color: #000000;
 }
 
@@ -8,13 +8,16 @@ body {
   display: flex;
   flex-flow: column nowrap;
   margin-bottom: 15px;
-  box-shadow: 0px 1px 5px 0px #000;
+  border: solid #dfdfdf;
+  border-width: thin;
+  border-radius: 10px;
 }
 
 .main-display {
   align-items: center;
   padding: 0px;
   max-width: 960px;
+  overflow: hidden;
 }
 
 .text-box {
@@ -27,6 +30,7 @@ body {
   background-color: #0282f9;
   height: 30px;
   width: 100%;
+  margin-bottom: 15px;
   position: relative;
 }
 
@@ -37,14 +41,22 @@ body {
   background-color: #ffffff;
   max-width: 960px;
   margin-bottom: 15px;
-  box-shadow: 0px 1px 5px 0px #000;
+  border: solid #dfdfdf;
+  border-width: thin;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .movie-segment1 {
   display: flex;
-
   padding: 30px;
   flex-direction: row;
+}
+
+.scrolling-wrapper {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
 }
 
 hr.title {
@@ -53,7 +65,7 @@ hr.title {
 
 .movie-poster {
   max-width: 300px;
-  border: solid #383838;
+  border: solid #dfdfdf;
   border-radius: 20px;
   border-width: thin;
   transition: 0.5s ease;
@@ -70,4 +82,13 @@ hr.title {
 .movie-synopsis {
   margin-left: 20px;
   padding: 10px 0px 30px 30px;
+}
+
+.movie-media {
+  width: 300px;
+  transition: 0.5s ease;
+}
+
+.movie-media:hover {
+  opacity: 0.5;
 }
