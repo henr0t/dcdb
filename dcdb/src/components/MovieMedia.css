@@ -1,0 +1,8 @@
+.movie-media {
+  height: 169px;
+  transition: 0.5s ease;
+}
+
+.movie-media:hover {
+  opacity: 0.5;
+}

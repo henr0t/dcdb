@@ -6,8 +6,8 @@ export const Home = () => (
     <div className="segment main-display  carousel-image">
       <ImageCarousel />
     </div>
+    <h3 className="underline-header">News</h3>
     <div className="segment text-box">
-      <h1>NEWS</h1>
       <p>
         "At vero eos et accusamus et iusto odio dignissimos ducimus qui
         blanditiis praesentium voluptatum deleniti atque corrupti quos dolores

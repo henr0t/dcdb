@@ -1,3 +1,4 @@
+import "./MovieMedia.css";
 import React from "react";
 
 const MovieMedia = (props) => {
