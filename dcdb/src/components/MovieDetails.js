@@ -1,3 +1,4 @@
+import "./MovieDetails.css";
 import React from "react";
 
 const MovieDetails = (props) => {
@@ -13,11 +14,8 @@ const MovieDetails = (props) => {
     revenue,
   } = props.children;
 
-  if (release_date != null) {
+  if (release_date != null && genres != null) {
     var release_year = release_date.substring(0, 4);
-  }
-
-  if (genres != null) {
     var genreList = genres.map((genre) => {
       return " | " + genre.name;
     });
