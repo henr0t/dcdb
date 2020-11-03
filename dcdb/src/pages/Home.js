@@ -3,7 +3,7 @@ import ImageCarousel from "../components/ImageCarousel";
 
 export const Home = () => (
   <div>
-    <div className="segment main-display">
+    <div className="segment main-display  carousel-image">
       <ImageCarousel />
     </div>
     <div className="segment text-box">

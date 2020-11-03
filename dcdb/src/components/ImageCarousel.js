@@ -17,7 +17,7 @@ const ImageCarousel = () => {
 
   return (
     <div>
-      <Carousel>{movieList}</Carousel>
+      <Carousel className="carousel-image">{movieList}</Carousel>
     </div>
   );
 };
