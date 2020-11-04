@@ -37,7 +37,7 @@ const MovieDetails = (props) => {
           </picture>
           <div className="movie-synopsis">
             <h1>
-              {original_title} <small>({release_year})</small>
+              {original_title} <small>{"(" + release_year + ")"}</small>
             </h1>
             <p>
               <i>"{tagline}"</i>

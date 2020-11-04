@@ -40,7 +40,7 @@ class Movie extends React.Component {
         <MovieDetails>{this.state.movie}</MovieDetails>
         <h3 className="underline-header">Photos</h3>
         <MovieMedia>{this.state.media}</MovieMedia>
-        <h3 className="underline-header">Cast</h3>
+        <h3 className="underline-header">Cast </h3>
         <MovieCast>{this.state.cast}</MovieCast>
         <h3 className="underline-header">Videos</h3>
         <div className="movie-segment">
