@@ -14,17 +14,21 @@ class MovieImage extends React.Component {
   render() {
     const { backdrop_path, original_title, id } = this.state.movie;
 
-    return (
-      <React.Fragment>
-        <Link to={"/movie/" + id}>
-          <img
-            className="d-block w-100"
-            alt={original_title}
-            src={"http://image.tmdb.org/t/p/w1280" + backdrop_path}
-          />
-        </Link>
-      </React.Fragment>
-    );
+    if (backdrop_path != null) {
+      return (
+        <React.Fragment>
+          <Link to={"/movie/" + id}>
+            <img
+              className="d-block w-100"
+              alt={original_title}
+              src={"http://image.tmdb.org/t/p/w1280" + backdrop_path}
+            />
+          </Link>
+        </React.Fragment>
+      );
+    } else {
+      return null;
+    }
   }
 }
 
