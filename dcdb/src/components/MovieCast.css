@@ -65,3 +65,7 @@
 .show-more-button:hover {
   background-color: #dfdfdf;
 }
+
+.show-more-button:focus {
+  outline: none;
+}

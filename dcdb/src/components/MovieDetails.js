@@ -1,7 +1,7 @@
 import "./MovieDetails.css";
 import React from "react";
 
-const MovieDetails = (props) => {
+const MovieDetails = ({ movies, crew }) => {
   const {
     original_title,
     release_date,
@@ -12,13 +12,32 @@ const MovieDetails = (props) => {
     genres,
     budget,
     revenue,
-  } = props.children;
+  } = movies;
 
   if (release_date != null && genres != null) {
     var release_year = release_date.substring(0, 4);
     var genreList = genres.map((genre) => {
       return " | " + genre.name;
     });
+  }
+
+  function filterCrew(isExact, job, department) {
+    var printCrew = crew
+      .filter((crew) =>
+        isExact
+          ? crew.job === job
+          : crew.job.includes(job) && crew.department.includes(department)
+      )
+      .map((crewMember) => {
+        return crewMember.name + " (" + crewMember.job + ")";
+      });
+
+    var printCrewFix = printCrew.map((item) => {
+      if (printCrew.indexOf(item) !== printCrew.length - 1) {
+        return printCrew[printCrew.indexOf(item)].concat(", ");
+      } else return item;
+    });
+    return printCrewFix;
   }
 
   return (
@@ -52,14 +71,14 @@ const MovieDetails = (props) => {
             </h3>
             <hr className="title" />
             <p>{overview}</p>
-            <b>Director:</b>
+            <b>Director:</b> {filterCrew(true, "Director", "Directing")}
             <br />
-            <b>Writer:</b>
+            <b>Writer:</b> {filterCrew(false, "", "Writing")}
             <br />
-            <b>Stars:</b>
+            <b>Composer:</b> {filterCrew(false, "Original Music Composer", "")}
           </div>
         </div>
-        <button>Add to Watchlist</button>
+        <button className="add-to-watchlist">Add to Watchlist</button>
       </div>
     </div>
   );
