@@ -2,7 +2,7 @@ import React from "react";
 import ImageCarousel from "../components/ImageCarousel";
 
 export const Home = () => (
-  <div>
+  <div className="fadin-animation">
     <div className="segment main-display  carousel-image">
       <ImageCarousel />
     </div>

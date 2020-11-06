@@ -66,3 +66,18 @@ body {
   padding: 30px;
   flex-direction: row;
 }
+
+.fadin-animation {
+  animation-name: fadein;
+  animation-duration: 1s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
