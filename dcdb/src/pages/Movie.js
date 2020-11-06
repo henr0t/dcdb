@@ -7,7 +7,7 @@ import data from "../data/movieList";
 import Axios from "axios";
 
 class Movie extends React.Component {
-  state = { movie: [], media: [], cast: [], crew: [] };
+  state = { movie: null, media: [], cast: [], crew: [] };
 
   componentDidMount() {
     const requestData = tmdb.get("/movie/" + this.props.match.params.movieId);
@@ -34,20 +34,33 @@ class Movie extends React.Component {
     }
   }
 
-  render() {
-    return (
-      <div>
-        <MovieDetails movies={this.state.movie} crew={this.state.crew} />
-        <h3 className="underline-header">Photos</h3>
-        <MovieMedia>{this.state.media}</MovieMedia>
-        <h3 className="underline-header">Cast </h3>
-        <MovieCast>{this.state.cast}</MovieCast>
-        <h3 className="underline-header">Videos</h3>
-        <div className="movie-segment">
-          <div className="movie-segment1">Videos</div>
+  renderContent() {
+    if (
+      (this.state.movie === null) &
+      (this.state.media.length === 0) &
+      (this.state.cast.length === 0) &
+      (this.state.crew.length === 0)
+    ) {
+      return null;
+    } else {
+      return (
+        <div className="fadin-animation">
+          <MovieDetails movies={this.state.movie} crew={this.state.crew} />
+          <h3 className="underline-header">Photos</h3>
+          <MovieMedia>{this.state.media}</MovieMedia>
+          <h3 className="underline-header">Cast </h3>
+          <MovieCast>{this.state.cast}</MovieCast>
+          <h3 className="underline-header">Videos</h3>
+          <div className="movie-segment">
+            <div className="movie-segment1">Videos</div>
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
+  }
+
+  render() {
+    return <div>{this.renderContent()}</div>;
   }
 }
 

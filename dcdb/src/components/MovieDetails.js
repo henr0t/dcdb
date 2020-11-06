@@ -14,12 +14,10 @@ const MovieDetails = ({ movies, crew }) => {
     revenue,
   } = movies;
 
-  if (release_date != null && genres != null) {
-    var release_year = release_date.substring(0, 4);
-    var genreList = genres.map((genre) => {
-      return " | " + genre.name;
-    });
-  }
+  var release_year = release_date.substring(0, 4);
+  var genreList = genres.map((genre) => {
+    return " | " + genre.name;
+  });
 
   function filterCrew(isExact, job, department) {
     var printCrew = crew
@@ -59,7 +57,7 @@ const MovieDetails = ({ movies, crew }) => {
               {original_title} <small>{"(" + release_year + ")"}</small>
             </h1>
             <p>
-              <i>"{tagline}"</i>
+              <i>"{tagline || "N/A"}"</i>
               <br />
               {runtime} min {genreList} - {release_date}
             </p>

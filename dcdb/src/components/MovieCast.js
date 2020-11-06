@@ -7,9 +7,7 @@ const MovieCast = (props) => {
 
   function getCastList(listSlice) {
     return listSlice.map((cast) => {
-      if (cast.profile_path == null) {
-        cast.profile_path = "/bFSnP9Gqn18zLWk5Tz0EDurfgOO.jpg";
-      }
+      cast.profile_path = "/bFSnP9Gqn18zLWk5Tz0EDurfgOO.jpg";
       return (
         <div key={cast.cast_id} className="row">
           <div className="column1">
