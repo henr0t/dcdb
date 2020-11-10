@@ -13,6 +13,10 @@ body {
   border-radius: 10px;
 }
 
+.dark {
+  background-color: black;
+}
+
 .main-display {
   align-items: center;
   padding: 0px;
@@ -67,6 +71,7 @@ body {
   flex-direction: row;
 }
 
+/* animation */
 .fadin-animation {
   animation-name: fadein;
   animation-duration: 1s;
@@ -75,9 +80,11 @@ body {
 @keyframes fadein {
   from {
     opacity: 0;
+    transform: translateY(1rem);
   }
 
   to {
     opacity: 1;
+    transform: translateY(0);
   }
 }

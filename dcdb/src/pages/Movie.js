@@ -3,11 +3,12 @@ import tmdb from "../api/tmdb";
 import MovieDetails from "../components/MovieDetails";
 import MovieMedia from "../components/MovieMedia";
 import MovieCast from "../components/MovieCast";
+import MovieVideo from "../components/MovieVideo";
 import data from "../data/movieList";
 import Axios from "axios";
 
 class Movie extends React.Component {
-  state = { movie: null, media: [], cast: [], crew: [] };
+  state = { movie: null, media: [], cast: [], crew: [], video: [] };
 
   componentDidMount() {
     const requestData = tmdb.get("/movie/" + this.props.match.params.movieId);
@@ -18,19 +19,26 @@ class Movie extends React.Component {
       "/movie/" + this.props.match.params.movieId + "/credits"
     );
 
+    const requestVideo = tmdb.get(
+      "/movie/" + this.props.match.params.movieId + "/videos"
+    );
+
     let idCheck = data.map((movie) => {
       return movie.movieId;
     });
 
     if (idCheck.includes(this.props.match.params.movieId)) {
-      Axios.all([requestData, requestMedia, requestCast]).then((response) => {
-        this.setState({
-          movie: response[0].data,
-          media: response[1].data.backdrops,
-          cast: response[2].data.cast,
-          crew: response[2].data.crew,
-        });
-      });
+      Axios.all([requestData, requestMedia, requestCast, requestVideo]).then(
+        (response) => {
+          this.setState({
+            movie: response[0].data,
+            media: response[1].data.backdrops,
+            cast: response[2].data.cast,
+            crew: response[2].data.crew,
+            video: response[3].data.results,
+          });
+        }
+      );
     }
   }
 
@@ -39,7 +47,8 @@ class Movie extends React.Component {
       (this.state.movie === null) &
       (this.state.media.length === 0) &
       (this.state.cast.length === 0) &
-      (this.state.crew.length === 0)
+      (this.state.crew.length === 0) &
+      (this.state.video.length === 0)
     ) {
       return null;
     } else {
@@ -52,7 +61,7 @@ class Movie extends React.Component {
           <MovieCast>{this.state.cast}</MovieCast>
           <h3 className="underline-header">Videos</h3>
           <div className="movie-segment">
-            <div className="movie-segment1">Videos</div>
+            <MovieVideo>{this.state.video}</MovieVideo>
           </div>
         </div>
       );

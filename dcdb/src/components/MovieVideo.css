@@ -1,0 +1,24 @@
+.video-list {
+  display: flex;
+}
+
+.thumbnail {
+  border-right: 1px solid #dfdfdf;
+}
+
+.image {
+  transition: 0.5s ease;
+}
+
+.image:hover {
+  filter: brightness(50%);
+}
+
+.caption {
+  display: block;
+  max-width: 320px;
+  font-size: 13px;
+  overflow: hidden;
+  text-align: center;
+  color: white;
+}

@@ -10,8 +10,9 @@
   text-align: center;
   font-size: 14px;
 }
+
 .movie-poster:hover {
-  opacity: 0.5;
+  filter: brightness(50%);
 }
 
 .movie-synopsis {
