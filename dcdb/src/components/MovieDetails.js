@@ -14,13 +14,19 @@ const MovieDetails = ({ movies, crew }) => {
     revenue,
   } = movies;
 
-  var release_year = release_date.substring(0, 4);
+  var releaseYear = release_date.substring(0, 4);
   var genreList = genres.map((genre) => {
-    return " | " + genre.name;
+    if (genres.indexOf(genre) !== genres.length - 1) {
+      return genres[genres.indexOf(genre)].name.concat(" | ");
+    } else return genre.name;
   });
 
+  function numberWithCommas(number) {
+    return number.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+  }
+
   function filterCrew(isExact, job, department) {
-    var printCrew = crew
+    var CrewFiltered = crew
       .filter((crew) =>
         isExact
           ? crew.job === job
@@ -30,19 +36,19 @@ const MovieDetails = ({ movies, crew }) => {
         return crewMember.name + " (" + crewMember.job + ")";
       });
 
-    var printCrewFix = printCrew.map((item) => {
-      if (printCrew.indexOf(item) !== printCrew.length - 1) {
-        return printCrew[printCrew.indexOf(item)].concat(", ");
+    var CrewFilteredCommas = CrewFiltered.map((item) => {
+      if (CrewFiltered.indexOf(item) !== CrewFiltered.length - 1) {
+        return CrewFiltered[CrewFiltered.indexOf(item)].concat(", ");
       } else return item;
     });
-    return printCrewFix;
+    return CrewFilteredCommas;
   }
 
   return (
     <div>
       <div className="movie-segment">
         <div className="movie-segment1">
-          <picture>
+          <picture className="overlay">
             <a href={"http://image.tmdb.org/t/p/original" + poster_path}>
               <img
                 className="movie-poster"
@@ -54,18 +60,19 @@ const MovieDetails = ({ movies, crew }) => {
           </picture>
           <div className="movie-synopsis">
             <h1>
-              {original_title} <small>{"(" + release_year + ")"}</small>
+              {original_title} <small>{"(" + releaseYear + ")"}</small>
             </h1>
             <p>
               <i>"{tagline || "N/A"}"</i>
               <br />
-              {runtime} min {genreList} - {release_date}
+              {runtime} min · {genreList} · {release_date}
             </p>
             <hr className="title" />
             <h3>
-              Budget: <small>{"$" + budget || "N/A"}</small>
+              Budget: <small>{"$" + numberWithCommas(budget) || "N/A"}</small>
               <br />
-              Box office: <small>{"$" + revenue || "N/A"}</small>
+              Box office:{" "}
+              <small>{"$" + numberWithCommas(revenue) || "N/A"}</small>
             </h3>
             <hr className="title" />
             <p>{overview}</p>

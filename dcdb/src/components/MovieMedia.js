@@ -5,7 +5,7 @@ const MovieMedia = (props) => {
   let mediaList = props.children.map((media) => {
     return (
       <a
-        key={props.children.indexOf(media) + 1}
+        key={props.children.indexOf(media)}
         href={"http://image.tmdb.org/t/p/original" + media.file_path}
       >
         <img
