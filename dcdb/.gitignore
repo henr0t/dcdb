@@ -19,7 +19,7 @@
 .env.production.local
 
 # exclude everything
-/src/api/
+
 
 npm-debug.log*
 yarn-debug.log*
