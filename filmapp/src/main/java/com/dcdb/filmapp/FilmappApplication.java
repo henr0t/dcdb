@@ -8,6 +8,7 @@ public class FilmappApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(FilmappApplication.class, args);
+		System.out.println("DCDB backend is up and running!");
 	}
 
 }
