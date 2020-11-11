@@ -6,6 +6,8 @@ import Movie from "../pages/Movie";
 import { NoMatch } from "../pages/NoMatch";
 import { Layout } from "./Layout";
 
+const dotenv = require("dotenv").config();
+
 class App extends React.Component {
   render() {
     return (
