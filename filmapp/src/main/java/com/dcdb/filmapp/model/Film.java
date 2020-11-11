@@ -7,20 +7,25 @@ import javax.persistence.Id;
 
 public class Film {
     @Id
-    private final long filmId;
-    private final String filmTitle;
+    private long filmId;
+    private String filmTitle;
 
-
-    public Film(long filmId, String filmTitle) {
-        this.filmId = filmId;
-        this.filmTitle = filmTitle;
-    }
 
     public long getFilmId() {
         return filmId;
     }
 
+    public void setFilmId(long filmId) {
+        this.filmId = filmId;
+    }
+
+    public void setFilmTitle(String filmTitle) {
+        this.filmTitle = filmTitle;
+    }
+
     public String getFilmTitle() {
         return filmTitle;
+
+
     }
 }

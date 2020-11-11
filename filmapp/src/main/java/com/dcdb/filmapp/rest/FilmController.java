@@ -15,17 +15,5 @@ public class FilmController {
     @Autowired
     FilmService fs;
 
-    private static final List<Film> FILMS = Arrays.asList(
-            new Film(1, "Man of Steel"),
-            new Film(2, "Batman v Superman: Dawn of Justice"),
-            new Film(3, "Suicide Squad"));
 
-    @GetMapping(path = "/{filmId}")
-    public Film getFilmById(@PathVariable("filmId") long filmId) {
-        System.out.println("Endpoint Called: getFilmbyId");
-        return FILMS.stream()
-                .filter(film -> filmId == (film.getFilmId()))
-                .findFirst()
-                .orElseThrow(() -> new IllegalStateException("Film " + filmId + " Does not exist"));
-    }
 }
