@@ -7,16 +7,16 @@ import javax.persistence.Id;
 
 public class User {
     @Id
-    private long userId;
+    private long id;
     private String username;
 
-    public User(long userId, String username) {
-        this.userId = userId;
+    public User(long id, String username) {
+        this.id = id;
         this.username = username;
     }
 
-    public long getUserId() {
-        return userId;
+    public long getId() {
+        return id;
     }
 
     public String getUsername() {

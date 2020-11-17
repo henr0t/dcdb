@@ -3,8 +3,8 @@ package com.dcdb.filmapp.security;
 public enum ApplicationUserPermission {
     USER_READ("user:read"),
     USER_WRITE("user:write"),
-    NEWS_READ("news:read"),
-    NEWS_WRITE("news:write");
+    FILM_READ("film:read"),
+    FILM_WRITE("film:write");
 
     private final String permission;
 

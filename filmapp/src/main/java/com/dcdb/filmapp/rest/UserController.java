@@ -27,7 +27,7 @@ public class UserController {
     public User getUserById(@PathVariable("userId") long userId) {
         System.out.println("Endpoint Called: getUserbyId");
         return USER.stream()
-                .filter(user -> userId == (user.getUserId()))
+                .filter(user -> userId == (user.getId()))
                 .findFirst()
                 .orElseThrow(() -> new IllegalStateException("User " + userId + " Does not exist"));
     }
