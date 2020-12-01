@@ -16,4 +16,12 @@ public class UserService {
     public User getUserById(long userId) {
         return ur.findById(userId).get();
     }
+
+    public User createUser(User user) {
+        return ur.save(user);
+    }
+
+    public Iterable<User> getAllUsers() {
+        return ur.findAll();
+    }
 }

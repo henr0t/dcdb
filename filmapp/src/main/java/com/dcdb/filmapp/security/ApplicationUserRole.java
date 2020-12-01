@@ -9,9 +9,9 @@ import java.util.stream.Collectors;
 import static com.dcdb.filmapp.security.ApplicationUserPermission.*;
 
 public enum ApplicationUserRole {
-    USER(Sets.newHashSet()),
     ADMIN(Sets.newHashSet(FILM_READ, FILM_WRITE, USER_READ, USER_WRITE)),
-    EDITOR(Sets.newHashSet(FILM_READ, USER_READ));
+    EDITOR(Sets.newHashSet(FILM_READ, USER_READ)),
+    USER(Sets.newHashSet());
 
     private final Set<ApplicationUserPermission> permissions;
 

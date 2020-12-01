@@ -1,7 +1,8 @@
 package com.dcdb.filmapp.auth;
 
+import com.dcdb.filmapp.controller.UserRepository;
+import com.dcdb.filmapp.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -10,16 +11,16 @@ import org.springframework.stereotype.Service;
 @Service
 public class ApplicationUserService implements UserDetailsService {
 
-    private final ApplicationUserDao applicationUserDao;
-
     @Autowired
-    public ApplicationUserService(@Qualifier("fake") ApplicationUserDao applicationUserDao) {
-        this.applicationUserDao = applicationUserDao;
-    }
+    private UserRepository ur;
+
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return applicationUserDao.selectApplicationUserByUsername(username)
-                .orElseThrow(() -> new UsernameNotFoundException(String.format("Username %s not found ", username)));
+        User user = ur.findByUsername(username);
+        if (user == null) {
+            throw new UsernameNotFoundException(String.format("Username %s not found ", username));
+        }
+        return new MyUserPrincipal(user);
     }
 }

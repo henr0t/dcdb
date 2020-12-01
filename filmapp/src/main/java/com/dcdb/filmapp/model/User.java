@@ -1,26 +1,48 @@
 package com.dcdb.filmapp.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import com.dcdb.filmapp.security.ApplicationUserRole;
+import org.springframework.security.core.GrantedAuthority;
+
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
-
 public class User {
+
     @Id
-    private long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    @Column(nullable = false, unique = true)
     private String username;
-
-    public User(long id, String username) {
-        this.id = id;
-        this.username = username;
-    }
-
-    public long getId() {
-        return id;
-    }
+    private String password;
+    private ApplicationUserRole role;
 
     public String getUsername() {
         return username;
     }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public ApplicationUserRole getRole() {
+        return role;
+    }
+
+    public void setRole(ApplicationUserRole role) {
+        this.role = role;
+    }
+
+    public Long getId() {
+        return id;
+    }
 }

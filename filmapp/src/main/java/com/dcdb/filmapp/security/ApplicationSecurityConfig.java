@@ -40,7 +40,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/", "index", "css/*", "js/*").permitAll()
-                .antMatchers("/api/v1/user/**").hasRole(USER.name())
+//                .antMatchers("/api/v1/user/**").hasRole(USER.name())
                 .anyRequest()
                 .authenticated()
                 .and()
@@ -66,7 +66,8 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.authenticationProvider(daoAuthenticationProvider());
+        auth.authenticationProvider(daoAuthenticationProvider())
+                .userDetailsService(applicationUserService);
     }
 
     @Bean
