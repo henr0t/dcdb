@@ -1,10 +1,8 @@
 package com.dcdb.filmapp.model;
 
 import com.dcdb.filmapp.security.ApplicationUserRole;
-import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 public class User {
@@ -15,6 +13,7 @@ public class User {
 
     @Column(nullable = false, unique = true)
     private String username;
+    //    private String email;
     private String password;
     private ApplicationUserRole role;
 
