@@ -1,6 +1,7 @@
 package com.dcdb.filmapp.security;
 
 import com.dcdb.filmapp.auth.ApplicationUserService;
+import com.dcdb.filmapp.jwt.JwtTokenVerifier;
 import com.dcdb.filmapp.jwt.JwtUsernamePasswordAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -43,6 +44,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .addFilter(new JwtUsernamePasswordAuthenticationFilter(authenticationManager()))
+                .addFilterAfter(new JwtTokenVerifier(), JwtUsernamePasswordAuthenticationFilter.class)
                 .authorizeRequests()
                 .antMatchers("/", "index", "css/*", "js/*").permitAll()
 //                .antMatchers("/api/v1/user/**").hasRole(USER.name())
