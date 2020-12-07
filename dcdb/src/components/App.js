@@ -1,7 +1,8 @@
 import "./App.css";
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import { Home } from "../pages/Home";
+import { Loginpage } from "../pages/Loginpage";
 import Movie from "../pages/Movie";
 import { NoMatch } from "../pages/NoMatch";
 import { Layout } from "./Layout";
@@ -12,16 +13,19 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <div className="navbar-placeholder" />
-        <Layout>
-          <Router>
+        <Router>
+          <div className="navbar-placeholder">
+            <Link to={"/"}>Home</Link>
+          </div>
+          <Layout>
             <Switch>
               <Route exact path="/" component={Home} />
+              <Route exact path="/login" component={Loginpage} />
               <Route exact path="/movie/:movieId" component={Movie} />
               <Route component={NoMatch} />
             </Switch>
-          </Router>
-        </Layout>
+          </Layout>
+        </Router>
       </React.Fragment>
     );
   }
