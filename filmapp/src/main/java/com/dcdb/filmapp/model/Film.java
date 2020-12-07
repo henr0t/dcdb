@@ -1,26 +1,34 @@
 package com.dcdb.filmapp.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 
 public class Film {
     @Id
-    private final long filmId;
-    private final String filmTitle;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+    private String title;
 
 
-    public Film(long filmId, String filmTitle) {
-        this.filmId = filmId;
-        this.filmTitle = filmTitle;
+    public long getId() {
+        return id;
     }
 
-    public long getFilmId() {
-        return filmId;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public String getFilmTitle() {
-        return filmTitle;
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getTitle() {
+        return title;
+
+
     }
 }
