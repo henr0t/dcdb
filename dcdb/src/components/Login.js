@@ -13,8 +13,9 @@ class Login extends React.Component {
     local
       .post("/login", data)
       .then((res) => {
-        console.log(res);
-        localStorage.setItem("token", res.token);
+        console.log("log in success!");
+        localStorage.setItem("token", res.headers.authorization);
+        localStorage.setItem("userid", res.headers.userid);
       })
       .catch((err) => console.log(err));
   };

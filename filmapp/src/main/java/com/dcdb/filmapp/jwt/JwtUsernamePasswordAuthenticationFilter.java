@@ -1,8 +1,9 @@
 package com.dcdb.filmapp.jwt;
 
+import com.dcdb.filmapp.controller.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.security.Keys;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -31,6 +32,9 @@ public class JwtUsernamePasswordAuthenticationFilter extends UsernamePasswordAut
         this.jwtConfig = jwtConfig;
         this.secretKey = secretKey;
     }
+
+    @Autowired
+    UserService us;
 
     @Override
     //sends credentials
@@ -66,5 +70,6 @@ public class JwtUsernamePasswordAuthenticationFilter extends UsernamePasswordAut
                 .compact();
 
         response.addHeader(jwtConfig.getAuthorizationHeader(), jwtConfig.getTokenPrefix() + token);
+        response.addHeader("UserId", authResult.getName());
     }
 }

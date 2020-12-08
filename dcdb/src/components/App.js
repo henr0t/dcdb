@@ -10,6 +10,13 @@ import { Layout } from "./Layout";
 const dotenv = require("dotenv").config();
 
 class App extends React.Component {
+  state = { user: [] };
+
+  componentDidMount() {
+    console.log("global storage: " + localStorage.getItem("token"));
+    console.log("user: " + localStorage.getItem("userid"));
+  }
+
   render() {
     return (
       <React.Fragment>
