@@ -15,6 +15,7 @@ public class User {
     private String username;
     private String email;
     private String password;
+    private String userId;
     private ApplicationUserRole role;
 
     public String getUsername() {
@@ -51,5 +52,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }

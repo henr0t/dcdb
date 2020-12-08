@@ -2,6 +2,7 @@ package com.dcdb.filmapp.auth;
 
 import com.dcdb.filmapp.controller.UserRepository;
 import com.dcdb.filmapp.model.User;
+import com.dcdb.filmapp.security.UserIdConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
@@ -19,6 +20,9 @@ public class InitialUserSetup {
     @Autowired
     UserRepository ur;
 
+    @Autowired
+    UserIdConfig uc;
+
     public InitialUserSetup(PasswordEncoder passwordEncoder) {
         this.passwordEncoder = passwordEncoder;
     }
@@ -33,6 +37,7 @@ public class InitialUserSetup {
             admin.setPassword(passwordEncoder.encode("password"));
             admin.setRole(ADMIN);
             admin.setEmail("admin@dcdb.com");
+            admin.setUserId(uc.generateUserId(25));
             ur.save(admin);
         }
 
@@ -42,6 +47,7 @@ public class InitialUserSetup {
             editor.setPassword(passwordEncoder.encode("password"));
             editor.setRole(EDITOR);
             editor.setEmail("editor@dcdb.com");
+            editor.setUserId(uc.generateUserId(25));
             ur.save(editor);
         }
 
@@ -51,6 +57,7 @@ public class InitialUserSetup {
             user.setPassword(passwordEncoder.encode("password"));
             user.setRole(USER);
             user.setEmail("user@dcdb.com");
+            user.setUserId(uc.generateUserId(25));
             ur.save(user);
         }
     }
