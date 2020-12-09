@@ -4,7 +4,10 @@ import com.dcdb.filmapp.controller.UserService;
 import com.dcdb.filmapp.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
+
+import java.security.Principal;
 
 
 @RestController
@@ -27,10 +30,10 @@ public class UserController {
         return us.getAllUsers();
     }
 
-    @GetMapping("/{userid}")
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
-    public User retrieveUser(@PathVariable(value = "userid") String userId) {
-        System.out.println("Retrieved user data");
+    @GetMapping("/{userId}")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN') or (#userId).equals(authentication.getName())")
+    public User getUser(@PathVariable(value = "userId") String userId, Authentication authentication) {
+        System.out.println("User " + authentication.getName() + " retrieved user data");
         return us.getUserById(userId);
     }
 }

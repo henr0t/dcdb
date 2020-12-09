@@ -14,13 +14,16 @@ class App extends React.Component {
   state = { user: null };
 
   componentDidMount() {
-    local
-      .get("/api/v1/user/" + localStorage.getItem("userid"))
-      .then((response) => {
-        this.setState({ user: response.data });
-        console.log(this.state.user);
-      })
-      .catch((error) => console.log(error));
+    if (!localStorage.getItem("userid")) {
+    } else {
+      local
+        .get("/api/v1/user/" + localStorage.getItem("userid"))
+        .then((response) => {
+          this.setState({ user: response.data });
+          console.log(this.state.user);
+        })
+        .catch((error) => console.log(error));
+    }
   }
 
   render() {
