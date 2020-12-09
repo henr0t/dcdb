@@ -26,4 +26,11 @@ public class UserController {
         System.out.println("Endpoint Called: getAllUsers");
         return us.getAllUsers();
     }
+
+    @GetMapping("/{userid}")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    public User retrieveUser(@PathVariable(value = "userid") String userId) {
+        System.out.println("Retrieved user data");
+        return us.getUserById(userId);
+    }
 }

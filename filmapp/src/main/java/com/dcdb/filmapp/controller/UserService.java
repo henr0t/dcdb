@@ -24,4 +24,8 @@ public class UserService {
     public Iterable<User> getAllUsers() {
         return ur.findAll();
     }
+
+    public User getUserById(String userId) {
+        return ur.findByUserId(userId);
+    }
 }
