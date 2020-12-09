@@ -6,6 +6,10 @@ export const Loginpage = () => (
     <h3 className="underline-header">Log in</h3>
     <div className="segment text-box">
       <Login />
+
+      <button className="logout-btn" onClick={() => localStorage.clear()}>
+        Log out
+      </button>
     </div>
   </div>
 );

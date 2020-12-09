@@ -6,15 +6,21 @@ import { Loginpage } from "../pages/Loginpage";
 import Movie from "../pages/Movie";
 import { NoMatch } from "../pages/NoMatch";
 import { Layout } from "./Layout";
+import local from "../api/local";
 
 const dotenv = require("dotenv").config();
 
 class App extends React.Component {
-  state = { user: [] };
+  state = { user: null };
 
   componentDidMount() {
-    console.log("global storage: " + localStorage.getItem("token"));
-    console.log("user: " + localStorage.getItem("userid"));
+    local
+      .get("/api/v1/user/" + localStorage.getItem("userid"))
+      .then((response) => {
+        this.setState({ user: response.data });
+        console.log(this.state.user);
+      })
+      .catch((error) => console.log(error));
   }
 
   render() {
@@ -23,6 +29,9 @@ class App extends React.Component {
         <Router>
           <div className="navbar-placeholder">
             <Link to={"/"}>Home</Link>
+            {this.state.user
+              ? `Logged in as ` + this.state.user.username
+              : `Sign in`}
           </div>
           <Layout>
             <Switch>
