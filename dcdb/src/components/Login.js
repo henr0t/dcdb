@@ -12,12 +12,12 @@ class Login extends React.Component {
 
     local
       .post("/login", data)
-      .then((res) => {
+      .then((response) => {
         console.log("log in success!");
-        localStorage.setItem("token", res.headers.authorization);
-        localStorage.setItem("userid", res.headers.userid);
+        localStorage.setItem("token", response.headers.authorization);
+        localStorage.setItem("userid", response.headers.userid);
       })
-      .catch((err) => console.log(err));
+      .catch((error) => console.log(error));
   };
 
   render() {
