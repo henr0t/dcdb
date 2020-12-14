@@ -42,7 +42,7 @@ public class FilmController {
     }
 
     @PutMapping("/{tmdbid}/{accountid}")
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN') or (#accountId).equals(authentication.getName())")
     public void addFilmToUser(@PathVariable(value = "tmdbid") String tmdbId, @PathVariable(value = "accountid") String accountId) {
         System.out.println("Added film " + tmdbId + " to watchlist of user " + accountId);
         fs.addFilmToUser(tmdbId, accountId);
