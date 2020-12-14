@@ -81,4 +81,9 @@ public class User {
     public void setWatchlist(List<Film> watchlist) {
         this.watchlist = watchlist;
     }
+
+    public void addFilmToWatchlist(Film film) {
+        watchlist.add(film);
+        film.addUserToFilm(this);
+    }
 }
