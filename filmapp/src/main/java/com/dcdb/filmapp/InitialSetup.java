@@ -1,6 +1,8 @@
-package com.dcdb.filmapp.auth;
+package com.dcdb.filmapp;
 
+import com.dcdb.filmapp.controller.FilmRepository;
 import com.dcdb.filmapp.controller.UserRepository;
+import com.dcdb.filmapp.model.Film;
 import com.dcdb.filmapp.model.User;
 import com.dcdb.filmapp.security.AccountIdConfig;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,16 +16,20 @@ import javax.transaction.Transactional;
 import static com.dcdb.filmapp.security.ApplicationUserRole.*;
 
 @Component
-public class InitialUserSetup {
+public class InitialSetup {
     private final PasswordEncoder passwordEncoder;
 
     @Autowired
     UserRepository ur;
 
+    //temp
+    @Autowired
+    FilmRepository fr;
+
     @Autowired
     AccountIdConfig uc;
 
-    public InitialUserSetup(PasswordEncoder passwordEncoder) {
+    public InitialSetup(PasswordEncoder passwordEncoder) {
         this.passwordEncoder = passwordEncoder;
     }
 
@@ -59,6 +65,28 @@ public class InitialUserSetup {
             user.setEmail("user@dcdb.com");
             user.setAcountId(uc.generateAccountId(25));
             ur.save(user);
+        }
+
+        //temp
+        if (fr.findByTitle("Man of Steel") == null) {
+            Film film = new Film();
+            film.setTitle("Man of Steel");
+            film.setTmdbId("49521");
+            fr.save(film);
+        }
+
+        if (fr.findByTitle("Batman v Superman: Dawn of Justice") == null) {
+            Film film = new Film();
+            film.setTitle("Batman v Superman: Dawn of Justice");
+            film.setTmdbId("209112");
+            fr.save(film);
+        }
+
+        if (fr.findByTitle("Wonder Woman") == null) {
+            Film film = new Film();
+            film.setTitle("Wonder Woman");
+            film.setTmdbId("297762");
+            fr.save(film);
         }
     }
 }
