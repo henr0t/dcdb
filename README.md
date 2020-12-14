@@ -23,7 +23,7 @@ With additional features to have user accounts, so users will be able to keep tr
 
 ## Technologies
 Project is created with:
-- Java 8
+- Java 13
 - React 17
 - Spring Boot 2.4.1
 - TMDB API
