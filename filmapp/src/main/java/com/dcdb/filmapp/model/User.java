@@ -1,8 +1,6 @@
 package com.dcdb.filmapp.model;
 
 import com.dcdb.filmapp.security.ApplicationUserRole;
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.ArrayList;
