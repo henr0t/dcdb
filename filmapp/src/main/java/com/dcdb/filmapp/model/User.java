@@ -72,7 +72,7 @@ public class User {
         return accountId;
     }
 
-    public void setAacountId(String accountId) {
+    public void setAcountId(String accountId) {
         this.accountId = accountId;
     }
 

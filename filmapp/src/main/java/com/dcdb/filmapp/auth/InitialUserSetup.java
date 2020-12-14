@@ -37,7 +37,7 @@ public class InitialUserSetup {
             admin.setPassword(passwordEncoder.encode("password"));
             admin.setRole(ADMIN);
             admin.setEmail("admin@dcdb.com");
-            admin.setAacountId(uc.generateAccountId(25));
+            admin.setAcountId(uc.generateAccountId(25));
             ur.save(admin);
         }
 
@@ -47,7 +47,7 @@ public class InitialUserSetup {
             editor.setPassword(passwordEncoder.encode("password"));
             editor.setRole(EDITOR);
             editor.setEmail("editor@dcdb.com");
-            editor.setAacountId(uc.generateAccountId(25));
+            editor.setAcountId(uc.generateAccountId(25));
             ur.save(editor);
         }
 
@@ -57,7 +57,7 @@ public class InitialUserSetup {
             user.setPassword(passwordEncoder.encode("password"));
             user.setRole(USER);
             user.setEmail("user@dcdb.com");
-            user.setAacountId(uc.generateAccountId(25));
+            user.setAcountId(uc.generateAccountId(25));
             ur.save(user);
         }
     }
