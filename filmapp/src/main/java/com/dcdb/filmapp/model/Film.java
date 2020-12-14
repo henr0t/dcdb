@@ -1,5 +1,7 @@
 package com.dcdb.filmapp.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +16,7 @@ public class Film {
     private String tmdbId;
 
     @ManyToMany(mappedBy = "watchlist")
+    @JsonIgnore
     private List<User> users = new ArrayList<>();
 
 
@@ -47,5 +50,9 @@ public class Film {
 
     public void setUsers(List<User> users) {
         this.users = users;
+    }
+
+    public void addUserToFilm(User user) {
+        users.add(user);
     }
 }

@@ -1,6 +1,7 @@
 package com.dcdb.filmapp.controller;
 
 import com.dcdb.filmapp.model.Film;
+import com.dcdb.filmapp.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,9 @@ public class FilmService {
 
     @Autowired
     FilmRepository fr;
+
+    @Autowired
+    UserRepository ur;
 
     public Film getFilmById(long filmId) {
         return fr.findById(filmId).get();
@@ -35,5 +39,11 @@ public class FilmService {
 
     public Iterable<Film> getAllFilms() {
         return fr.findAll();
+    }
+
+    public void addFilmToUser(String tmdbId, String accountId) {
+        User user = ur.findByAccountId(accountId);
+        Film film = fr.findByTmdbId(tmdbId);
+        user.addFilmToWatchlist(film);
     }
 }
