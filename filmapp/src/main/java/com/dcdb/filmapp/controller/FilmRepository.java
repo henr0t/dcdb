@@ -7,5 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public interface FilmRepository extends CrudRepository<Film, Long> {
 
+    Film findByTitle(String Title);
+
     Film findByTmdbId(String tmdbId);
 }
