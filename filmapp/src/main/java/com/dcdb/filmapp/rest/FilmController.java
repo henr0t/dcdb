@@ -14,7 +14,7 @@ public class FilmController {
     FilmService fs;
 
     @GetMapping("/all")
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_EDITOR')")
+    @PreAuthorize("hasAuthority('film:read')")
     public Iterable<Film> getAllFilms() {
         System.out.println("Endpoint Called: getAllFilm");
         return fs.getAllFilms();
@@ -27,16 +27,16 @@ public class FilmController {
         return fs.addNewFilm(film);
     }
 
-    @PutMapping("/{filmId}")
-    @PreAuthorize("hasAuthority('film:write')")
-    public void updateFilm(@PathVariable(value = "filmId") long filmId, @RequestBody Film film) {
+    @PutMapping("/{filmid}")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    public void updateFilm(@PathVariable(value = "filmid") long filmId, @RequestBody Film film) {
         System.out.println("Endpoint Called: updateFilm");
         fs.updateFilm(filmId, film);
     }
 
-    @DeleteMapping("/{filmId}")
-    @PreAuthorize("hasAuthority('film:write')")
-    public void deleteFilm(@PathVariable(value = "filmId") long filmId) {
+    @DeleteMapping("/{filmid}")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    public void deleteFilm(@PathVariable(value = "filmid") long filmId) {
         System.out.println("Endpoint Called: deleteFilm");
         fs.deleteFilm(filmId);
     }
