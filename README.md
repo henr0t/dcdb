@@ -7,6 +7,7 @@ A film database app for information related to DC films (cast, crew, summaries, 
 - [Introduction](#introduction)
 - [Technologies](#technologies)
 - [Setup](#setup)
+- [Usage](#usage)
 - [Status](#status)
 
 ## Introduction
@@ -25,10 +26,18 @@ Project is created with:
 - Java 8
 - React 17
 - Spring Boot 2.4.1
+- TMDB API
 
 ## Setup
-TBD
+Clone this repo and run `npm install` to install all the dependencies.
+
+## Usage
+Clone this repo to your desktop and run npm install to install all the dependencies.
+
+Once the dependencies are installed, you can run  `npm start` to start the application. You will then be able to access it at localhost:3000
+
 ```
+$npm install
 $npm start
 ```
 
