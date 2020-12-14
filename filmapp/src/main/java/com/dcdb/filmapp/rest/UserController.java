@@ -30,10 +30,10 @@ public class UserController {
         return us.getAllUsers();
     }
 
-    @GetMapping("/{userId}")
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN') or (#userId).equals(authentication.getName())")
-    public User getUser(@PathVariable(value = "userId") String userId, Authentication authentication) {
+    @GetMapping("/{accountId}")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN') or (#accountId).equals(authentication.getName())")
+    public User getUser(@PathVariable(value = "accountId") String accountId, Authentication authentication) {
         System.out.println("User " + authentication.getName() + " retrieved user data");
-        return us.getUserById(userId);
+        return us.getUserByAccountId(accountId);
     }
 }
