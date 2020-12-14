@@ -25,7 +25,7 @@ public class MyUserPrincipal implements UserDetails {
 
     @Override
     public String getUsername() {
-        return this.user.getUserId();
+        return this.user.getAccountId();
     }
 
     @Override

@@ -6,11 +6,11 @@ import java.security.SecureRandom;
 import java.util.Random;
 
 @Component
-public class UserIdConfig {
+public class AccountIdConfig {
     public final Random RANDOM = new SecureRandom();
     public final String ALPHABET = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvvxyz";
 
-    public String generateUserId(int length) {
+    public String generateAccountId(int length) {
         return generateRandomString(length);
     }
 

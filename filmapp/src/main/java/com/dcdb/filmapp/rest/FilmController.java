@@ -40,4 +40,10 @@ public class FilmController {
         System.out.println("Endpoint Called: deleteFilm");
         fs.deleteFilm(filmId);
     }
+
+//    @PutMapping("/{}/{}")
+//    @PreAuthorize("hasAnyRole('ROLE_ADMIN') or (#accountId).equals(authentication.getName())")
+//    public addFilmToUser(@PathVariable(value = "filmid") long filmId, @PathVariable(value = "userid")) {
+//
+//    }
 }

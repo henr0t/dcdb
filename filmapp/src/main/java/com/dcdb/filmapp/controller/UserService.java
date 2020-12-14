@@ -25,7 +25,7 @@ public class UserService {
         return ur.findAll();
     }
 
-    public User getUserById(String userId) {
-        return ur.findByUserId(userId);
+    public User getUserByAccountId(String accountId) {
+        return ur.findByAccountId(accountId);
     }
 }

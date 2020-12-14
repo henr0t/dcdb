@@ -9,5 +9,5 @@ public interface UserRepository extends CrudRepository<User, Long> {
 
     User findByUsername(String username);
 
-    User findByUserId(String userId);
+    User findByAccountId(String accountId);
 }
