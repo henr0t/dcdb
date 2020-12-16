@@ -1,5 +1,7 @@
 import "./MovieDetails.css";
 import React from "react";
+import local from "../api/local";
+import WatchButton from "./WatchButton";
 
 const MovieDetails = ({ movies, crew }) => {
   const {
@@ -12,6 +14,7 @@ const MovieDetails = ({ movies, crew }) => {
     genres,
     budget,
     revenue,
+    id,
   } = movies;
 
   var releaseYear = release_date.substring(0, 4);
@@ -83,7 +86,7 @@ const MovieDetails = ({ movies, crew }) => {
             <b>Composer:</b> {filterCrew(false, "Original Music Composer", "")}
           </div>
         </div>
-        <button className="add-to-watchlist">Add to Watchlist</button>
+        <WatchButton>{id}</WatchButton>
       </div>
     </div>
   );

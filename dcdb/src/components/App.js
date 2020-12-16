@@ -14,11 +14,12 @@ class App extends React.Component {
   state = { user: null };
 
   componentDidMount() {
-    if (!localStorage.getItem("userid")) {
+    if (!localStorage.getItem("userid") && !localStorage.getItem("token")) {
     } else {
       local
         .get("/api/v1/user/" + localStorage.getItem("userid"))
         .then((response) => {
+          localStorage.setItem("user", JSON.stringify(response.data));
           this.setState({ user: response.data });
           console.log(this.state.user);
         })
