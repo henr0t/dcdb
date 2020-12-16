@@ -44,6 +44,10 @@ public class FilmService {
     public void addFilmToUser(String tmdbId, String accountId) {
         User user = ur.findByAccountId(accountId);
         Film film = fr.findByTmdbId(tmdbId);
-        user.addFilmToWatchlist(film);
+        if (user.getWatchlist().contains(film)) {
+            System.out.println("film could not be added");
+        } else {
+            user.addFilmToWatchlist(film);
+        }
     }
 }
