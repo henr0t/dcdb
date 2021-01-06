@@ -1,6 +1,7 @@
 import React from "react";
 import local from "../api/local";
-import { Redirect } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import AuthContext from "./AuthContext.js";
 
 class Login extends React.Component {
   state = { loginSucces: false };
@@ -24,30 +25,47 @@ class Login extends React.Component {
       .catch((error) => console.log(error));
   };
 
+  redirectHome() {}
+
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div className="form=group">
-          <label>Username</label>
-          <input
-            type="username"
-            className="form-control"
-            placeholder="Username"
-            onChange={(e) => (this.username = e.target.value)}
-          />
-        </div>
-        <div className="form=group">
-          <label>Password</label>
-          <input
-            type="password"
-            className="form-control"
-            placeholder="Password"
-            onChange={(e) => (this.password = e.target.value)}
-          />
-        </div>
-        <button className="login-btn">Log in</button>
-        {this.state.loginSucces ? <Redirect to="/" /> : ``}
-      </form>
+      <AuthContext.Consumer>
+        {({ login, logout }) => (
+          <React.Fragment>
+            <form onSubmit={this.handleSubmit}>
+              <div className="form=group">
+                <label>Username</label>
+                <input
+                  type="username"
+                  className="form-control"
+                  placeholder="Username"
+                  autoComplete="username"
+                  onChange={(e) => (this.username = e.target.value)}
+                />
+              </div>
+              <div className="form=group">
+                <label>Password</label>
+                <input
+                  type="password"
+                  className="form-control"
+                  placeholder="Password"
+                  autoComplete="current-password"
+                  onChange={(e) => (this.password = e.target.value)}
+                />
+              </div>
+              <button className="login-btn" onClick={login}>
+                Log in
+              </button>
+              {this.state.loginSucces ? <Redirect to="/" /> : ``}
+            </form>
+            <Link to={"/"}>
+              <button className="logout-btn" onClick={logout}>
+                Log out
+              </button>
+            </Link>
+          </React.Fragment>
+        )}
+      </AuthContext.Consumer>
     );
   }
 }
