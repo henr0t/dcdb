@@ -5,13 +5,15 @@ class WatchButton extends React.Component {
   state = { user: JSON.parse(localStorage.getItem("user")), watched: false };
 
   addToWatchlist() {
-    local.put(
-      "/api/v1/film/" +
-        this.props.children +
-        "/" +
-        localStorage.getItem("userid")
-    );
-    this.setState({ watched: true });
+    if (this.state.user) {
+      local.put(
+        "/api/v1/film/" +
+          this.props.children +
+          "/" +
+          localStorage.getItem("userid")
+      );
+      this.setState({ watched: true });
+    }
   }
 
   checkWatchlist() {
@@ -36,14 +38,30 @@ class WatchButton extends React.Component {
   }
 
   render() {
-    return (
-      <button
-        className="add-to-watchlist"
-        onClick={() => this.addToWatchlist()}
-      >
-        {this.state.watched ? `Added to watchlist ` : `Add to watchlist`}
-      </button>
-    );
+    if (this.state.watched) {
+      return (
+        <React.Fragment>
+          <button
+            className="add-to-watchlist"
+            onClick={() => this.addToWatchlist()}
+            disabled
+          >
+            Added to watchlist
+          </button>
+        </React.Fragment>
+      );
+    } else {
+      return (
+        <React.Fragment>
+          <button
+            className="add-to-watchlist"
+            onClick={() => this.addToWatchlist()}
+          >
+            Add to watchlist
+          </button>
+        </React.Fragment>
+      );
+    }
   }
 }
 
