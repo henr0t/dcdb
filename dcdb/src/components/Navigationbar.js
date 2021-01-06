@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import local from "../api/local";
+import AuthContext from "./AuthContext.js";
 
 class Navigationbar extends React.Component {
   state = { user: null };
@@ -25,12 +26,17 @@ class Navigationbar extends React.Component {
 
   render() {
     return (
-      <div className="navbar-placeholder">
-        <Link to={"/"}>Home</Link>
-        {this.state.user
-          ? `Logged in as ` + this.state.user.username
-          : `Please sign in`}
-      </div>
+      <AuthContext.Consumer>
+        {({ LOGIN_STATUS }) => (
+          <div className="navbar-placeholder">
+            {LOGIN_STATUS ? (
+              <Link to={"/login"}>Logged in</Link>
+            ) : (
+              <Link to={"/login"}>Please sign in</Link>
+            )}
+          </div>
+        )}
+      </AuthContext.Consumer>
     );
   }
 }

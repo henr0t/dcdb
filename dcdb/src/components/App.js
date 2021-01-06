@@ -7,41 +7,57 @@ import Movie from "../pages/Movie";
 import { NoMatch } from "../pages/NoMatch";
 import { Layout } from "./Layout";
 import Navigationbar from "./Navigationbar";
-import local from "../api/local";
+import AuthContext from "./AuthContext";
 
 const dotenv = require("dotenv").config();
 
 class App extends React.Component {
-  state = { user: null };
+  constructor(props) {
+    super(props);
+    this.state = {
+      LOGIN_STATUS: false,
+    };
+    this.login = this.login.bind(this);
+    this.logout = this.logout.bind(this);
+  }
+
+  login() {
+    this.setState({ LOGIN_STATUS: true });
+  }
+  logout() {
+    this.setState({ LOGIN_STATUS: false });
+    localStorage.clear();
+  }
 
   componentDidMount() {
-    if (!localStorage.getItem("userid") && !localStorage.getItem("token")) {
-    } else {
-      local
-        .get("/api/v1/user/" + localStorage.getItem("userid"))
-        .then((response) => {
-          localStorage.setItem("user", JSON.stringify(response.data));
-          this.setState({ user: response.data });
-        })
-        .catch((error) => console.log(error));
+    if (localStorage.getItem("token") && localStorage.getItem("userid")) {
+      this.login();
     }
   }
 
   render() {
+    const value = {
+      LOGIN_STATUS: this.state.LOGIN_STATUS,
+      login: this.login,
+      logout: this.logout,
+    };
+
     return (
-      <React.Fragment>
-        <Router>
-          <Navigationbar />
-          <Layout>
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/login" component={Loginpage} />
-              <Route exact path="/movie/:movieId" component={Movie} />
-              <Route component={NoMatch} />
-            </Switch>
-          </Layout>
-        </Router>
-      </React.Fragment>
+      <AuthContext.Provider value={value}>
+        <React.Fragment>
+          <Router>
+            <Navigationbar />
+            <Layout>
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route exact path="/login" component={Loginpage} />
+                <Route exact path="/movie/:movieId" component={Movie} />
+                <Route component={NoMatch} />
+              </Switch>
+            </Layout>
+          </Router>
+        </React.Fragment>
+      </AuthContext.Provider>
     );
   }
 }

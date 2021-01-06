@@ -4,6 +4,10 @@ body {
 }
 
 /*general*/
+a {
+  color: blue;
+}
+
 .segment {
   display: flex;
   flex-flow: column nowrap;
