@@ -20,7 +20,6 @@ class Login extends React.Component {
         localStorage.setItem("token", response.headers.authorization);
         localStorage.setItem("userid", response.headers.userid);
         this.setState({ loginSucces: true });
-        this.props.children();
       })
       .catch((error) => console.log(error));
   };

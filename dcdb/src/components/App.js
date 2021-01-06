@@ -7,20 +7,23 @@ import Movie from "../pages/Movie";
 import { NoMatch } from "../pages/NoMatch";
 import { Layout } from "./Layout";
 import Navigationbar from "./Navigationbar";
+import local from "../api/local";
 
 const dotenv = require("dotenv").config();
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { loginStatus: false };
-    this.loggedIn = this.loggedIn.bind(this);
-  }
+  state = { user: null };
 
-  loggedIn() {
-    if (localStorage.getItem("userid") && localStorage.getItem("token")) {
-      this.setState({ loginStatus: true });
-      console.log(this.state.loginStatus);
+  componentDidMount() {
+    if (!localStorage.getItem("userid") && !localStorage.getItem("token")) {
+    } else {
+      local
+        .get("/api/v1/user/" + localStorage.getItem("userid"))
+        .then((response) => {
+          localStorage.setItem("user", JSON.stringify(response.data));
+          this.setState({ user: response.data });
+        })
+        .catch((error) => console.log(error));
     }
   }
 
@@ -32,11 +35,7 @@ class App extends React.Component {
           <Layout>
             <Switch>
               <Route exact path="/" component={Home} />
-              <Route
-                exact
-                path="/login"
-                render={() => <Loginpage loggedIn={this.loggedIn} />}
-              />
+              <Route exact path="/login" component={Loginpage} />
               <Route exact path="/movie/:movieId" component={Movie} />
               <Route component={NoMatch} />
             </Switch>
