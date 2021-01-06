@@ -1,6 +1,5 @@
 import "./MovieDetails.css";
 import React from "react";
-import local from "../api/local";
 import WatchButton from "./WatchButton";
 
 const MovieDetails = ({ movies, crew }) => {

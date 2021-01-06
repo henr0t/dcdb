@@ -1,7 +1,10 @@
 import React from "react";
 import local from "../api/local";
+import { Redirect } from "react-router-dom";
 
 class Login extends React.Component {
+  state = { loginSucces: false };
+
   handleSubmit = (e) => {
     e.preventDefault();
 
@@ -16,6 +19,7 @@ class Login extends React.Component {
         console.log("log in success!");
         localStorage.setItem("token", response.headers.authorization);
         localStorage.setItem("userid", response.headers.userid);
+        this.setState({ loginSucces: true });
       })
       .catch((error) => console.log(error));
   };
@@ -42,6 +46,7 @@ class Login extends React.Component {
           />
         </div>
         <button className="login-btn">Log in</button>
+        {this.state.loginSucces ? <Redirect to="/" /> : ``}
       </form>
     );
   }
