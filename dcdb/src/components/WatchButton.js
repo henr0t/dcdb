@@ -37,9 +37,9 @@ class WatchButton extends React.Component {
     if (!localStorage.getItem("userid") && !localStorage.getItem("token")) {
     } else {
       await local
-        .get("/api/v1/user/" + localStorage.getItem("userid"))
+        .get("/api/v1/user/" + localStorage.getItem("userid") + "/watchlist")
         .then((response) => {
-          this.setState({ watchlist: response.data.watchlist });
+          this.setState({ watchlist: response.data });
           console.log(this.state.watchlist);
         })
         .catch((error) => console.log(error));
