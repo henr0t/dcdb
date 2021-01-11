@@ -1,8 +1,17 @@
 import axios from "axios";
 
-export default axios.create({
+const localAPI = axios.create({
   baseURL: "http://localhost:8082",
-  headers: {
-    Authorization: localStorage.getItem("token"),
-  },
+  headers: {},
 });
+
+localAPI.interceptors.request.use(
+  (config) => {
+    config.headers.Authorization = localStorage.getItem("token");
+    return config;
+  },
+
+  (error) => Promise.reject(error)
+);
+
+export default localAPI;
