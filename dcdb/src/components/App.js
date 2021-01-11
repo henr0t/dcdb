@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Home } from "../pages/Home";
 import { Loginpage } from "../pages/Loginpage";
 import Movie from "../pages/Movie";
+import { Profile } from "../pages/Profile";
 import { NoMatch } from "../pages/NoMatch";
 import { Layout } from "./Layout";
 import Navigationbar from "./Navigationbar";
@@ -52,6 +53,7 @@ class App extends React.Component {
                 <Route exact path="/" component={Home} />
                 <Route exact path="/login" component={Loginpage} />
                 <Route exact path="/movie/:movieId" component={Movie} />
+                <Route exact path="/profile/" component={Profile} />
                 <Route component={NoMatch} />
               </Switch>
             </Layout>

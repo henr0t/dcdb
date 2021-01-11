@@ -2,7 +2,7 @@ import React from "react";
 import tmdb from "../api/tmdb";
 import { Link } from "react-router-dom";
 
-class MovieImage extends React.Component {
+class MoviePoster extends React.Component {
   state = { movie: [] };
 
   componentDidMount() {
@@ -12,16 +12,17 @@ class MovieImage extends React.Component {
   }
 
   render() {
-    const { backdrop_path, original_title, id } = this.state.movie;
+    const { poster_path, original_title, id } = this.state.movie;
 
-    if (backdrop_path != null) {
+    if (poster_path != null) {
       return (
         <React.Fragment>
           <Link to={"/movie/" + id}>
             <img
-              className="d-block w-100"
               alt={original_title}
-              src={"http://image.tmdb.org/t/p/w1280" + backdrop_path}
+              src={
+                "http://image.tmdb.org/t/p/w" + this.props.width + poster_path
+              }
             />
           </Link>
         </React.Fragment>
@@ -32,4 +33,4 @@ class MovieImage extends React.Component {
   }
 }
 
-export default MovieImage;
+export default MoviePoster;
