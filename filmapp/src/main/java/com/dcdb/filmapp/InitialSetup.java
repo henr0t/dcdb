@@ -82,10 +82,24 @@ public class InitialSetup {
             fr.save(film);
         }
 
+        if (fr.findByTitle("Suicide Squad") == null) {
+            Film film = new Film();
+            film.setTitle("Suicide Squad");
+            film.setTmdbId("297761");
+            fr.save(film);
+        }
+
         if (fr.findByTitle("Wonder Woman") == null) {
             Film film = new Film();
             film.setTitle("Wonder Woman");
             film.setTmdbId("297762");
+            fr.save(film);
+        }
+
+        if (fr.findByTitle("Justice League") == null) {
+            Film film = new Film();
+            film.setTitle("Justice League");
+            film.setTmdbId("141052");
             fr.save(film);
         }
     }
