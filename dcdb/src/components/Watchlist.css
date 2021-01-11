@@ -2,12 +2,11 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
 }
 
 .watchlist img {
-  margin: 0px 5px 15px 5px;
-  width: 210px;
+  margin: 0px 5px 10px 5px;
+  width: 214px;
   border-radius: 10px;
   transition: all 0.2s ease-in-out;
 }
