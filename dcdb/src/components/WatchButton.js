@@ -2,10 +2,10 @@ import React from "react";
 import local from "../api/local";
 
 class WatchButton extends React.Component {
-  state = { user: JSON.parse(localStorage.getItem("user")), watched: false };
+  state = { watchlist: [], watched: false };
 
   addToWatchlist() {
-    if (this.state.user) {
+    if (this.state.watchlist) {
       local.put(
         "/api/v1/film/" +
           this.props.children +
@@ -17,12 +17,12 @@ class WatchButton extends React.Component {
   }
 
   checkWatchlist() {
-    if (!this.state.user) {
+    if (!this.state.watchlist) {
     } else {
       if (
-        this.state.user.watchlist
-          .map((watchlist) => {
-            return watchlist.tmdbId;
+        this.state.watchlist
+          .map((film) => {
+            return film.tmdbId;
           })
           .includes(this.props.children.toString())
       ) {
@@ -33,8 +33,23 @@ class WatchButton extends React.Component {
     }
   }
 
+  async requestUserWatchlist() {
+    if (!localStorage.getItem("userid") && !localStorage.getItem("token")) {
+    } else {
+      await local
+        .get("/api/v1/user/" + localStorage.getItem("userid"))
+        .then((response) => {
+          this.setState({ watchlist: response.data.watchlist });
+          console.log(this.state.watchlist);
+        })
+        .catch((error) => console.log(error));
+
+      this.checkWatchlist();
+    }
+  }
+
   componentDidMount() {
-    this.checkWatchlist();
+    this.requestUserWatchlist();
   }
 
   render() {
