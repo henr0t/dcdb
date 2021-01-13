@@ -28,8 +28,12 @@ const AdminTools = () => {
 
   return (
     <div>
-      <button onClick={(() => addToDatabase(), handleShow)}>
-        {" "}
+      <button
+        onClick={() => {
+          addToDatabase();
+          handleShow();
+        }}
+      >
         Update film database
       </button>
 
