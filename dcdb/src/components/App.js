@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Home } from "../pages/Home";
 import { Loginpage } from "../pages/Loginpage";
 import Movie from "../pages/Movie";
-import { Profile } from "../pages/Profile";
+import Profile from "../pages/Profile";
 import { NoMatch } from "../pages/NoMatch";
 import { Layout } from "./Layout";
 import Navigationbar from "./Navigationbar";
