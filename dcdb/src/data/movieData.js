@@ -1,4 +1,4 @@
-const movieList = [
+const movieData = [
   {
     title: "Man of Steel",
     movieId: "49521",
@@ -49,5 +49,30 @@ const movieList = [
     movieId: "436969",
     movie: "10",
   },
+  {
+    title: "The Batman",
+    movieId: "414906",
+    movie: "11",
+  },
+  {
+    title: "The Flash",
+    movieId: "298618",
+    movie: "12",
+  },
+  {
+    title: "Aquaman 2",
+    movieId: "572802",
+    movie: "13",
+  },
+  {
+    title: "Shazam! Fury of the Gods",
+    movieId: "594767",
+    movie: "14",
+  },
+  {
+    title: "Black Adam",
+    movieId: "436270",
+    movie: "15",
+  },
 ];
-export default movieList;
+export default movieData;

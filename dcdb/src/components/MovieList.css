@@ -1,0 +1,17 @@
+.movielist {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.movielist img {
+  margin: 0px 5px 10px 5px;
+  width: 214px;
+  height: 321px;
+  border-radius: 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+.movielist img:hover {
+  transform: scale(1.04);
+}

@@ -40,7 +40,6 @@ class WatchButton extends React.Component {
         .get("/api/v1/user/" + localStorage.getItem("userid") + "/watchlist")
         .then((response) => {
           this.setState({ watchlist: response.data });
-          console.log(this.state.watchlist);
         })
         .catch((error) => console.log(error));
 

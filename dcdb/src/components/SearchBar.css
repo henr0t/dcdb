@@ -1,0 +1,15 @@
+.searchBar {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.searchBar form input {
+  width: 100%;
+  border: none;
+  background-color: white;
+  color: black;
+}
+
+.searchBar form input:focus {
+  outline: none;
+}

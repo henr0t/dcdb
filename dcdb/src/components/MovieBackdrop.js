@@ -1,6 +1,7 @@
 import React from "react";
 import tmdb from "../api/tmdb";
 import { Link } from "react-router-dom";
+import backdropEmpty from "../img/backdrop_empty.png";
 
 class MovieBackdrop extends React.Component {
   state = { movie: [] };
@@ -27,7 +28,17 @@ class MovieBackdrop extends React.Component {
         </React.Fragment>
       );
     } else {
-      return null;
+      return (
+        <React.Fragment>
+          <Link to={"/movie/" + id}>
+            <img
+              className="d-block w-100"
+              alt={original_title}
+              src={backdropEmpty}
+            />
+          </Link>
+        </React.Fragment>
+      );
     }
   }
 }
