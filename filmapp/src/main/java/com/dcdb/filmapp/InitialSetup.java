@@ -66,41 +66,5 @@ public class InitialSetup {
             user.setAcountId(uc.generateAccountId(25));
             ur.save(user);
         }
-
-        //temp
-        if (fr.findByTitle("Man of Steel") == null) {
-            Film film = new Film();
-            film.setTitle("Man of Steel");
-            film.setTmdbId("49521");
-            fr.save(film);
-        }
-
-        if (fr.findByTitle("Batman v Superman: Dawn of Justice") == null) {
-            Film film = new Film();
-            film.setTitle("Batman v Superman: Dawn of Justice");
-            film.setTmdbId("209112");
-            fr.save(film);
-        }
-
-        if (fr.findByTitle("Suicide Squad") == null) {
-            Film film = new Film();
-            film.setTitle("Suicide Squad");
-            film.setTmdbId("297761");
-            fr.save(film);
-        }
-
-        if (fr.findByTitle("Wonder Woman") == null) {
-            Film film = new Film();
-            film.setTitle("Wonder Woman");
-            film.setTmdbId("297762");
-            fr.save(film);
-        }
-
-        if (fr.findByTitle("Justice League") == null) {
-            Film film = new Film();
-            film.setTitle("Justice League");
-            film.setTmdbId("141052");
-            fr.save(film);
-        }
     }
 }

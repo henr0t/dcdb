@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 @Transactional
@@ -22,8 +24,26 @@ public class FilmService {
     }
 
     public Film addNewFilm(Film film) {
-        return fr.save(film);
+        if (checkDatabase(film)) {
+            return null;
+        } else {
+            return fr.save(film);
+        }
     }
+
+    public boolean checkDatabase(Film film) {
+        List<String> filmTitles = new ArrayList<>();
+        List<String> filmTmdbId = new ArrayList<>();
+        for (Film fm : getAllFilms()) {
+            filmTitles.add(fm.getTitle());
+            filmTmdbId.add(fm.getTmdbId());
+        }
+        if (filmTitles.contains(film.getTitle()) && filmTmdbId.contains(film.getTmdbId())) {
+            System.out.println("film already in the database");
+            return true;
+        } else return false;
+    }
+
 
     public Film updateFilm(long filmId, Film film) {
         Film updatefilm = getFilmById(filmId);
