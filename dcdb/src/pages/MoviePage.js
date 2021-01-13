@@ -4,10 +4,10 @@ import MovieDetails from "../components/MovieDetails";
 import MovieMedia from "../components/MovieMedia";
 import MovieCast from "../components/MovieCast";
 import MovieVideo from "../components/MovieVideo";
-import data from "../data/movieList";
+import data from "../data/movieData";
 import Axios from "axios";
 
-class Movie extends React.Component {
+class MoviePage extends React.Component {
   state = { movie: null, media: [], cast: [], crew: [], video: [] };
 
   componentDidMount() {
@@ -73,4 +73,4 @@ class Movie extends React.Component {
   }
 }
 
-export default Movie;
+export default MoviePage;

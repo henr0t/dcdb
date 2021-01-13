@@ -1,10 +1,10 @@
 import React from "react";
 import MovieBackdrop from "./MovieBackdrop";
-import data from "../data/movieList";
+import data from "../data/movieData";
 import { Carousel } from "react-bootstrap";
 
 const ImageCarousel = () => {
-  let movieList = data.map((movie) => {
+  let movieList = data.slice(8).map((movie) => {
     return (
       <Carousel.Item key={movie.movie} interval="10000">
         <MovieBackdrop movieId={movie.movieId} />

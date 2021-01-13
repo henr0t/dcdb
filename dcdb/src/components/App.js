@@ -2,8 +2,9 @@ import "./App.css";
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Home } from "../pages/Home";
+import Movies from "../pages/Movies";
 import { Loginpage } from "../pages/Loginpage";
-import Movie from "../pages/Movie";
+import MoviePage from "../pages/MoviePage";
 import Profile from "../pages/Profile";
 import { NoMatch } from "../pages/NoMatch";
 import { Layout } from "./Layout";
@@ -52,7 +53,8 @@ class App extends React.Component {
               <Switch>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/login" component={Loginpage} />
-                <Route exact path="/movie/:movieId" component={Movie} />
+                <Route exact path="/movie/:movieId" component={MoviePage} />
+                <Route exact path="/movies" component={Movies} />
                 <Route exact path="/profile/" component={Profile} />
                 <Route component={NoMatch} />
               </Switch>

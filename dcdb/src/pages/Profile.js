@@ -1,7 +1,7 @@
 import React from "react";
 import Watchlist from "../components/Watchlist";
 import UserDetails from "../components/UserDetails";
-import AdminMenu from "../components/AdminMenu";
+import AdminTools from "../components/AdminTools";
 import local from "../api/local";
 
 class Profile extends React.Component {
@@ -34,19 +34,18 @@ class Profile extends React.Component {
             email={this.state.email}
           />
         </div>
+        {this.state.role === "ADMIN" ? (
+          <div>
+            <h3 className="underline-header">Admin Tools</h3>
+            <div className="segment profile-box">
+              <AdminTools />{" "}
+            </div>
+          </div>
+        ) : null}
         <h3 className="underline-header">Watchlist</h3>
         <div className="segment profile-box">
           <Watchlist watchlist={this.state.watchlist} />
         </div>
-
-        {this.state.role === "ADMIN" ? (
-          <div>
-            <h3 className="underline-header">Admin</h3>
-            <div className="segment profile-box">
-              <AdminMenu />{" "}
-            </div>
-          </div>
-        ) : null}
       </div>
     );
   }

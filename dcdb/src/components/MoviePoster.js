@@ -16,16 +16,18 @@ class MoviePoster extends React.Component {
 
     if (poster_path != null) {
       return (
-        <React.Fragment>
-          <Link to={"/movie/" + id}>
-            <img
-              alt={original_title}
-              src={
-                "http://image.tmdb.org/t/p/w" + this.props.width + poster_path
-              }
-            />
-          </Link>
-        </React.Fragment>
+        <div className="fadin-animation2">
+          <React.Fragment>
+            <Link to={"/movie/" + id}>
+              <img
+                alt={original_title}
+                src={
+                  "http://image.tmdb.org/t/p/w" + this.props.width + poster_path
+                }
+              />
+            </Link>
+          </React.Fragment>
+        </div>
       );
     } else {
       return null;
