@@ -1,6 +1,7 @@
+import "./Login.css";
 import React from "react";
 import local from "../api/local";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import AuthContext from "./AuthContext.js";
 
 class Login extends React.Component {
@@ -25,16 +26,13 @@ class Login extends React.Component {
       .catch((error) => console.log(error));
   };
 
-  redirectHome() {}
-
   render() {
     return (
       <AuthContext.Consumer>
-        {({ login, logout }) => (
+        {({ login }) => (
           <React.Fragment>
             <form onSubmit={this.handleSubmit}>
               <div className="form=group">
-                <label>Username</label>
                 <input
                   type="username"
                   className="form-control"
@@ -44,7 +42,6 @@ class Login extends React.Component {
                 />
               </div>
               <div className="form=group">
-                <label>Password</label>
                 <input
                   type="password"
                   className="form-control"
@@ -54,15 +51,10 @@ class Login extends React.Component {
                 />
               </div>
               <button className="login-btn" onClick={login}>
-                Log in
+                Log In
               </button>
               {this.state.loginSucces ? <Redirect to="/" /> : ``}
             </form>
-            <Link to={"/"}>
-              <button className="logout-btn" onClick={logout}>
-                Log out
-              </button>
-            </Link>
           </React.Fragment>
         )}
       </AuthContext.Consumer>

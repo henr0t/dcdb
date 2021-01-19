@@ -59,6 +59,28 @@ a {
   position: relative;
 }
 
+/*login page*/
+.login-segment {
+  display: flex;
+  flex-flow: column nowrap;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.login-box {
+  width: 50%;
+  padding: 30px;
+  background-color: white;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.login-text {
+  width: 50%;
+  padding: 30px;
+}
+
 /*movie page*/
 .movie-segment {
   display: flex;
