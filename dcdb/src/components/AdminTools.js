@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import local from "../api/local";
 import data from "../data/movieData";
 import { Modal } from "react-bootstrap";
+import NewUser from "./NewUser";
 
 function addToDatabase() {
   data.map((movie) => {
@@ -31,22 +32,26 @@ const AdminTools = () => {
       <button
         onClick={() => {
           addToDatabase();
-          handleShow();
         }}
       >
         Update film database
       </button>
+      <br />
+      <button
+        onClick={() => {
+          handleShow();
+        }}
+      >
+        Create Admin
+      </button>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Update Success!</Modal.Title>
+          <Modal.Title>Create new Admin</Modal.Title>
         </Modal.Header>
-        <Modal.Body>The database has been updated</Modal.Body>
-        <Modal.Footer>
-          <button variant="secondary" onClick={handleClose}>
-            Close
-          </button>
-        </Modal.Footer>
+        <Modal.Body>
+          <NewUser role="admin" />
+        </Modal.Body>
       </Modal>
     </div>
   );

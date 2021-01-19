@@ -41,6 +41,18 @@ public class UserService {
         return ur.save(newUser);
     }
 
+    public User createAdmin(User user) {
+
+        User newAdmin = new User();
+
+        newAdmin.setRole(ApplicationUserRole.ADMIN);
+        newAdmin.setAcountId(uc.generateAccountId(25));
+        newAdmin.setEmail(user.getEmail());
+        newAdmin.setUsername(user.getUsername());
+        newAdmin.setPassword(passwordEncoder.encode(user.getPassword()));
+        return ur.save(newAdmin);
+    }
+
     public Iterable<User> getAllUsers() {
         return ur.findAll();
     }
@@ -52,4 +64,6 @@ public class UserService {
     public List<Film> getWatchlistByAccountId(String accountId) {
         return ur.findByAccountId(accountId).getWatchlist();
     }
+
+
 }

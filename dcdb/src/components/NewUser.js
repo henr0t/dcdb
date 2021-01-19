@@ -14,7 +14,7 @@ class NewUser extends React.Component {
     };
 
     local
-      .post("/api/v1/user/new", data)
+      .post("/api/v1/user/new/" + this.props.role, data)
       .then((response) => {
         this.setState({ createSuccess: true });
       })

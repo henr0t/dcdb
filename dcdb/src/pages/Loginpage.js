@@ -33,7 +33,7 @@ const Loginpage = () => {
           <Modal.Title>Join DCDb</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <NewUser />
+          <NewUser role="user" />
         </Modal.Body>
       </Modal>
     </div>
