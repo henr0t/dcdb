@@ -32,11 +32,6 @@ a {
   padding: 30px;
 }
 
-.profile-box {
-  background-color: #ffffff;
-  padding: 30px;
-}
-
 .scrolling-wrapper {
   overflow-x: scroll;
   overflow-y: hidden;
@@ -54,6 +49,7 @@ a {
 .navbar-placeholder {
   background-color: #0282f9;
   height: 30px;
+  padding: 0px 15px;
   width: 100%;
   margin-bottom: 15px;
   position: relative;
@@ -79,6 +75,53 @@ a {
 .login-text {
   width: 50%;
   padding: 30px;
+}
+
+.new-user {
+  margin: 0px 0px;
+  width: 100%;
+  text-align: center;
+}
+
+.new-user-btn {
+  background-color: #00a400;
+  color: #ffffff;
+  width: 40%;
+  height: 45px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 8px;
+  margin: 15px;
+}
+
+/*profile*/
+.profile-segment {
+  display: flex;
+  flex-flow: column nowrap;
+  margin-bottom: 15px;
+  background-color: #ffffff;
+  border: solid #dfdfdf;
+  border-width: thin;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.profile-box {
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 30px;
+}
+
+.logout-btn {
+  background-color: #dfdfdf;
+  width: 100%;
+  border: none;
+}
+
+.logout-btn:hover {
+  background-color: #a5a5a5;
+  outline: none;
 }
 
 /*movie page*/

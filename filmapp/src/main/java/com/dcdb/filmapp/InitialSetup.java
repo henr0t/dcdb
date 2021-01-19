@@ -2,7 +2,6 @@ package com.dcdb.filmapp;
 
 import com.dcdb.filmapp.controller.FilmRepository;
 import com.dcdb.filmapp.controller.UserRepository;
-import com.dcdb.filmapp.model.Film;
 import com.dcdb.filmapp.model.User;
 import com.dcdb.filmapp.security.AccountIdConfig;
 import org.springframework.beans.factory.annotation.Autowired;

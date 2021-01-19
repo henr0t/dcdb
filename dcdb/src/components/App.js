@@ -3,7 +3,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Home } from "../pages/Home";
 import Movies from "../pages/Movies";
-import { Loginpage } from "../pages/Loginpage";
+import Loginpage from "../pages/Loginpage";
 import MoviePage from "../pages/MoviePage";
 import Profile from "../pages/Profile";
 import { NoMatch } from "../pages/NoMatch";

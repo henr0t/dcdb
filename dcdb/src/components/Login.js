@@ -18,7 +18,6 @@ class Login extends React.Component {
     local
       .post("/login", data)
       .then((response) => {
-        console.log("log in success!");
         localStorage.setItem("token", response.headers.authorization);
         localStorage.setItem("userid", response.headers.userid);
         this.setState({ loginSucces: true });
@@ -40,6 +39,7 @@ class Login extends React.Component {
                   autoComplete="username"
                   onChange={(e) => (this.username = e.target.value)}
                   ng-hide="true"
+                  required
                 />
               </div>
               <div className="form=group">
@@ -49,6 +49,7 @@ class Login extends React.Component {
                   placeholder="Password"
                   autoComplete="current-password"
                   onChange={(e) => (this.password = e.target.value)}
+                  required
                 />
               </div>
               <button className="login-btn" onClick={login}>
