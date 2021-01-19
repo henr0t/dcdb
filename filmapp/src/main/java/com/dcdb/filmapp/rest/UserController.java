@@ -18,7 +18,6 @@ public class UserController {
     UserService us;
 
     @PostMapping(path = "/new")
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     public User createUser(@RequestBody User user) {
         System.out.println("Endpoint Called: createUser");
         return us.createUser(user);

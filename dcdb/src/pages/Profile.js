@@ -32,28 +32,35 @@ class Profile extends React.Component {
         {({ logout }) => (
           <div className="fadin-animation">
             <h3 className="underline-header">Profile</h3>
-            <div className="segment profile-box">
-              <UserDetails
-                username={this.state.username}
-                email={this.state.email}
-              />
+            <div className="profile-segment">
+              <div className="profile-box">
+                <UserDetails
+                  username={this.state.username}
+                  email={this.state.email}
+                />
+              </div>
               <Link to={"/"}>
                 <button className="logout-btn" onClick={logout}>
                   Log out
                 </button>
               </Link>
             </div>
+
             {this.state.role === "ADMIN" ? (
               <div>
                 <h3 className="underline-header">Admin Tools</h3>
-                <div className="segment profile-box">
-                  <AdminTools />{" "}
+                <div className="profile-segment">
+                  <div className="profile-box">
+                    <AdminTools />
+                  </div>
                 </div>
               </div>
             ) : null}
             <h3 className="underline-header">Watchlist</h3>
-            <div className="segment profile-box">
-              <Watchlist watchlist={this.state.watchlist} />
+            <div className="profile-segment">
+              <div className="profile-box">
+                <Watchlist watchlist={this.state.watchlist} />
+              </div>
             </div>
           </div>
         )}
