@@ -34,11 +34,12 @@ class Login extends React.Component {
             <form onSubmit={this.handleSubmit}>
               <div className="form=group">
                 <input
-                  type="username"
+                  type="text"
                   className="form-control"
                   placeholder="Username"
                   autoComplete="username"
                   onChange={(e) => (this.username = e.target.value)}
+                  ng-hide="true"
                 />
               </div>
               <div className="form=group">
