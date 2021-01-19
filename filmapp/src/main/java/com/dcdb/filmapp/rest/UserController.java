@@ -17,10 +17,17 @@ public class UserController {
     @Autowired
     UserService us;
 
-    @PostMapping(path = "/new")
+    @PostMapping(path = "/new/user")
     public User createUser(@RequestBody User user) {
         System.out.println("Endpoint Called: createUser");
         return us.createUser(user);
+    }
+
+    @PostMapping(path = "new/admin")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    public User createAdmin(@RequestBody User user) {
+        System.out.println("Endpoint Called: createAdmin");
+        return us.createAdmin(user);
     }
 
     @GetMapping("/all")
