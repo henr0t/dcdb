@@ -70,4 +70,14 @@ public class FilmService {
             user.addFilmToWatchlist(film);
         }
     }
+
+    public void removeFilmFromUser(String tmdbId, String accountId) {
+        User user = ur.findByAccountId(accountId);
+        Film film = fr.findByTmdbId(tmdbId);
+        if (user.getWatchlist().contains(film)) {
+            user.removeFilmFromWatchlist(film);
+        } else {
+            System.out.println("film not part of collection");
+        }
+    }
 }
