@@ -21,10 +21,6 @@ public class InitialSetup {
     @Autowired
     UserRepository ur;
 
-    //temp
-    @Autowired
-    FilmRepository fr;
-
     @Autowired
     AccountIdConfig uc;
 
@@ -44,26 +40,6 @@ public class InitialSetup {
             admin.setEmail("admin@dcdb.com");
             admin.setAcountId(uc.generateAccountId(25));
             ur.save(admin);
-        }
-
-        if (ur.findByUsername("editor") == null) {
-            User editor = new User();
-            editor.setUsername("editor");
-            editor.setPassword(passwordEncoder.encode("password"));
-            editor.setRole(EDITOR);
-            editor.setEmail("editor@dcdb.com");
-            editor.setAcountId(uc.generateAccountId(25));
-            ur.save(editor);
-        }
-
-        if (ur.findByUsername("user") == null) {
-            User user = new User();
-            user.setUsername("user");
-            user.setPassword(passwordEncoder.encode("password"));
-            user.setRole(USER);
-            user.setEmail("user@dcdb.com");
-            user.setAcountId(uc.generateAccountId(25));
-            ur.save(user);
         }
     }
 }
