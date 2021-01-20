@@ -30,7 +30,7 @@ class Profile extends React.Component {
     return (
       <AuthContext.Consumer>
         {({ logout }) => (
-          <div className="fadin-animation">
+          <div>
             <h3 className="underline-header">Profile</h3>
             <div className="profile-segment">
               <div className="profile-box">

@@ -1,23 +1,25 @@
 import "./MovieCast.css";
 import React, { useState } from "react";
 import { Collapse } from "react-bootstrap";
+import castEmpty from "../img/cast_empty.png";
 
 const MovieCast = (props) => {
   const [open, setOpen] = useState(false);
 
   function getCastList(listSlice) {
     return listSlice.map((cast) => {
-      if (cast.profile_path == null) {
-        cast.profile_path = "/bFSnP9Gqn18zLWk5Tz0EDurfgOO.jpg";
-      }
       return (
         <div key={cast.cast_id} className="row">
           <div className="column1">
-            <img
-              className="cast-image"
-              alt={cast.name}
-              src={"http://image.tmdb.org/t/p/w200" + cast.profile_path}
-            />
+            {cast.profile_path == null ? (
+              <img className="cast-image" alt={cast.name} src={castEmpty} />
+            ) : (
+              <img
+                className="cast-image"
+                alt={cast.name}
+                src={"http://image.tmdb.org/t/p/w200" + cast.profile_path}
+              />
+            )}
           </div>
           <div className="column2">
             <p>{cast.name}</p>

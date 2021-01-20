@@ -26,7 +26,7 @@ class Profile extends React.Component {
 
   render() {
     return (
-      <div className="fadin-animation">
+      <div>
         <h3 className="underline-header">Search</h3>
         <div className="segment text-box">
           <SearchBar
