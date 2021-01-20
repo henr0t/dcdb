@@ -16,6 +16,19 @@ class WatchButton extends React.Component {
     }
   }
 
+  removeFromWatchlist() {
+    if (this.state.watchlist) {
+      local.put(
+        "/api/v1/film/" +
+          this.props.children +
+          "/" +
+          localStorage.getItem("userid") +
+          "/remove"
+      );
+      this.setState({ watched: false });
+    }
+  }
+
   checkWatchlist() {
     if (!this.state.watchlist) {
     } else {
@@ -56,11 +69,11 @@ class WatchButton extends React.Component {
       return (
         <React.Fragment>
           <button
-            className="add-to-watchlist"
-            onClick={() => this.addToWatchlist()}
-            disabled
+            className="added-to-watchlist"
+            onClick={() => this.removeFromWatchlist()}
+            title="remove from watchlist"
           >
-            Added to watchlist
+            Watched ✔
           </button>
         </React.Fragment>
       );
