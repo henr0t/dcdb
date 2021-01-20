@@ -53,7 +53,7 @@ class MoviePage extends React.Component {
       return null;
     } else {
       return (
-        <div className="fadin-animation">
+        <div>
           <MovieDetails movies={this.state.movie} crew={this.state.crew} />
           <h3 className="underline-header">Photos</h3>
           <MovieMedia>{this.state.media}</MovieMedia>

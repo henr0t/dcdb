@@ -10,7 +10,7 @@ const Loginpage = () => {
   const handleShow = () => setShow(true);
 
   return (
-    <div className="fadin-animation">
+    <div>
       <div className="login-segment">
         <div className="login-text">
           <h1>
