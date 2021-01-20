@@ -124,6 +124,22 @@ a {
   outline: none;
 }
 
+.admin-tools-btn {
+  background-color: #dfdfdf;
+  margin: 5px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+}
+
+.admin-tools-btn:hover {
+  background-color: #a5a5a5;
+  margin: 5px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+}
+
 /*movie page*/
 .movie-segment {
   display: flex;
