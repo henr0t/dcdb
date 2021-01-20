@@ -86,4 +86,9 @@ public class User {
         watchlist.add(film);
         film.addUserToFilm(this);
     }
+
+    public void removeFilmFromWatchlist(Film film) {
+        watchlist.remove(film);
+        film.removeUserFromFilm(this);
+    }
 }

@@ -47,4 +47,11 @@ public class FilmController {
         System.out.println("Added film " + tmdbId + " to watchlist of user " + accountId);
         fs.addFilmToUser(tmdbId, accountId);
     }
+
+    @PutMapping("/{tmdbid}/{accountid}/remove")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN') or (#accountId).equals(authentication.getName())")
+    public void removeFilmFromUser(@PathVariable(value = "tmdbid") String tmdbId, @PathVariable(value = "accountid") String accountId) {
+        System.out.println("Removed film " + tmdbId + " from watchlist of user " + accountId);
+        fs.removeFilmFromUser(tmdbId, accountId);
+    }
 }

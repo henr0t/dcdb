@@ -55,4 +55,8 @@ public class Film {
     public void addUserToFilm(User user) {
         users.add(user);
     }
+
+    public void removeUserFromFilm(User user) {
+        users.remove(user);
+    }
 }
