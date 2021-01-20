@@ -33,21 +33,21 @@ public class UserController {
     @GetMapping("/all")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     public Iterable<User> getAllUsers() {
-        System.out.println("Endpoint Called: getAllUsers");
+//        System.out.println("Endpoint Called: getAllUsers");
         return us.getAllUsers();
     }
 
     @GetMapping("/{accountId}")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN') or (#accountId).equals(authentication.getName())")
     public User getUser(@PathVariable(value = "accountId") String accountId, Authentication authentication) {
-        System.out.println("User " + authentication.getName() + " retrieved user data");
+//        System.out.println("User " + authentication.getName() + " retrieved user data");
         return us.getUserByAccountId(accountId);
     }
 
     @GetMapping("/{accountId}/watchlist")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN') or (#accountId).equals(authentication.getName())")
     public List<Film> getWatchlist(@PathVariable(value = "accountId") String accountId, Authentication authentication) {
-        System.out.println("User " + authentication.getName() + " retrieved user watchlist");
+//        System.out.println("User " + authentication.getName() + " retrieved user watchlist");
         return us.getWatchlistByAccountId(accountId);
     }
 }
