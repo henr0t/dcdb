@@ -4,6 +4,7 @@ import com.dcdb.filmapp.controller.FilmRepository;
 import com.dcdb.filmapp.controller.UserRepository;
 import com.dcdb.filmapp.model.User;
 import com.dcdb.filmapp.security.AccountIdConfig;
+import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
@@ -32,7 +33,8 @@ public class InitialSetup {
     @EventListener
     @Transactional
     public void onApplicationEvent(ApplicationReadyEvent event) {
-        if (ur.findByUsername("admin") == null) {
+        if (ur.findByRole(ADMIN) == null) {
+            System.out.println("Initial Admin created");
             User admin = new User();
             admin.setUsername("admin");
             admin.setPassword(passwordEncoder.encode("password"));
