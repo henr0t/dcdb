@@ -1,5 +1,6 @@
 import React from "react";
 import local from "../api/local";
+import AuthContext from "./AuthContext.js";
 
 class WatchButton extends React.Component {
   state = { watchlist: [], watched: false };
@@ -80,12 +81,26 @@ class WatchButton extends React.Component {
     } else {
       return (
         <React.Fragment>
-          <button
-            className="add-to-watchlist"
-            onClick={() => this.addToWatchlist()}
-          >
-            Add to watchlist
-          </button>
+          <AuthContext.Consumer>
+            {({ LOGIN_STATUS }) =>
+              LOGIN_STATUS ? (
+                <button
+                  className="add-to-watchlist"
+                  onClick={() => this.addToWatchlist()}
+                >
+                  Add to watchlist
+                </button>
+              ) : (
+                <button
+                  className="add-to-watchlist"
+                  title="Please sign in"
+                  disabled
+                >
+                  Add to watchlist
+                </button>
+              )
+            }
+          </AuthContext.Consumer>
         </React.Fragment>
       );
     }
