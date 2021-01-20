@@ -30,6 +30,7 @@ const AdminTools = () => {
   return (
     <div>
       <button
+        className="admin-tools-btn"
         onClick={() => {
           addToDatabase();
         }}
@@ -38,6 +39,7 @@ const AdminTools = () => {
       </button>
       <br />
       <button
+        className="admin-tools-btn"
         onClick={() => {
           handleShow();
         }}
