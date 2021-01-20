@@ -6,8 +6,8 @@ class Navigationbar extends React.Component {
   render() {
     var LoggedInMenu = (
       <div>
-        <Link to={"/"}>Home</Link> -<Link to={"/profile"}> Profile</Link> -
-        <Link to={"/movies"}> Search</Link>
+        <Link to={"/"}>HOME</Link> - <Link to={"/profile"}>PROFILE</Link> -{" "}
+        <Link to={"/movies"}>SEARCH</Link>
       </div>
     );
 
@@ -16,7 +16,7 @@ class Navigationbar extends React.Component {
         <Link to={"/login"}>
           <b>Please sign in</b>
         </Link>{" "}
-        - <Link to={"/"}>Home</Link> -<Link to={"/movies"}> Search</Link>
+        | <Link to={"/"}>HOME</Link> - <Link to={"/movies"}>SEARCH</Link>
       </div>
     );
 

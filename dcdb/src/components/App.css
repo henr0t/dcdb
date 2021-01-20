@@ -48,11 +48,21 @@ a {
 
 .navbar-placeholder {
   background-color: #0282f9;
+  color: white;
   height: 30px;
   padding: 0px 15px;
   width: 100%;
   margin-bottom: 15px;
   position: relative;
+}
+
+.navbar-placeholder a {
+  color: #f0f0f0;
+}
+
+.navbar-placeholder a:hover {
+  color: #ffffff;
+  text-decoration: none;
 }
 
 /*login page*/
