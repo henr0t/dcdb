@@ -16,7 +16,7 @@ public class FilmController {
     @GetMapping("/all")
     @PreAuthorize("hasAuthority('film:read')")
     public Iterable<Film> getAllFilms() {
-        System.out.println("Endpoint Called: getAllFilm");
+//        System.out.println("Endpoint Called: getAllFilm");
         return fs.getAllFilms();
     }
 
@@ -44,14 +44,14 @@ public class FilmController {
     @PutMapping("/{tmdbid}/{accountid}")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN') or (#accountId).equals(authentication.getName())")
     public void addFilmToUser(@PathVariable(value = "tmdbid") String tmdbId, @PathVariable(value = "accountid") String accountId) {
-        System.out.println("Added film " + tmdbId + " to watchlist of user " + accountId);
+//        System.out.println("Added film " + tmdbId + " to watchlist of user " + accountId);
         fs.addFilmToUser(tmdbId, accountId);
     }
 
     @PutMapping("/{tmdbid}/{accountid}/remove")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN') or (#accountId).equals(authentication.getName())")
     public void removeFilmFromUser(@PathVariable(value = "tmdbid") String tmdbId, @PathVariable(value = "accountid") String accountId) {
-        System.out.println("Removed film " + tmdbId + " from watchlist of user " + accountId);
+//        System.out.println("Removed film " + tmdbId + " from watchlist of user " + accountId);
         fs.removeFilmFromUser(tmdbId, accountId);
     }
 }
