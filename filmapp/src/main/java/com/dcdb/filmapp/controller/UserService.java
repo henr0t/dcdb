@@ -66,4 +66,8 @@ public class UserService {
     }
 
 
+    public void deleteUser(String accountId) {
+        User user = getUserByAccountId(accountId);
+        ur.delete(user);
+    }
 }
