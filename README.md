@@ -42,4 +42,4 @@ $npm start
 ```
 
 ## Status
-Current in development
+v1.0 release
