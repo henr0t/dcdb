@@ -11,8 +11,6 @@ import { Layout } from "./Layout";
 import Navigationbar from "./Navigationbar";
 import AuthContext from "./AuthContext";
 
-const dotenv = require("dotenv").config();
-
 class App extends React.Component {
   constructor(props) {
     super(props);

@@ -37,7 +37,7 @@ public class UserController {
         return us.getAllUsers();
     }
 
-    @DeleteMapping(path = "/delete/{accountId}/")
+    @DeleteMapping(path = "/delete/{accountId}")
     public void deleteUser(@PathVariable(value = "accountId") String accountId) {
         System.out.println("Endpoint Called: deleteUser");
         us.deleteUser(accountId);
