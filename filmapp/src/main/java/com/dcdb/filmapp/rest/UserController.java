@@ -37,6 +37,12 @@ public class UserController {
         return us.getAllUsers();
     }
 
+    @DeleteMapping(path = "/delete/{accountId}")
+    public void deleteUser(@PathVariable(value = "accountId") String accountId) {
+        System.out.println("Endpoint Called: deleteUser");
+        us.deleteUser(accountId);
+    }
+
     @GetMapping("/{accountId}")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN') or (#accountId).equals(authentication.getName())")
     public User getUser(@PathVariable(value = "accountId") String accountId, Authentication authentication) {
