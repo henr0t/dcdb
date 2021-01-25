@@ -186,6 +186,14 @@ a {
   .movie-segment1 {
     flex-direction: column;
   }
+
+  .login-text {
+    display: none;
+  }
+
+  .login-box {
+    width: 100%;
+  }
 }
 
 @media (max-width: 600px) {

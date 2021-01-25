@@ -21,7 +21,7 @@ class MoviePoster extends React.Component {
           <React.Fragment>
             <Link to={"/movie/" + id}>
               <img
-                class="movie-poster"
+                className="movie-poster"
                 alt={original_title}
                 src={
                   "http://image.tmdb.org/t/p/w" + this.props.width + poster_path

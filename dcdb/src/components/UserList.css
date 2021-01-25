@@ -1,0 +1,9 @@
+.userlist table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.userlist td {
+  width: 225px;
+  overflow-x: auto;
+}
