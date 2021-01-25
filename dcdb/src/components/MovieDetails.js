@@ -54,16 +54,16 @@ const MovieDetails = ({ movies, crew }) => {
           <img
             className="moviepage-backdrop"
             alt={original_title}
-            src={"http://image.tmdb.org/t/p/w300" + backdrop_path}
+            src={"https://image.tmdb.org/t/p/w1280" + backdrop_path}
           />
         </picture>
         <div className="movie-segment1">
           <picture className="poster-overlay">
-            <a href={"http://image.tmdb.org/t/p/original" + poster_path}>
+            <a href={"https://image.tmdb.org/t/p/original" + poster_path}>
               <img
                 className="moviepage-poster"
                 alt={original_title}
-                src={"http://image.tmdb.org/t/p/w300" + poster_path}
+                src={"https://image.tmdb.org/t/p/w300" + poster_path}
               />
               <div className="expand-text">Click to expand</div>
             </a>

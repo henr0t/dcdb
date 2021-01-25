@@ -24,7 +24,9 @@ class MoviePoster extends React.Component {
                 className="movie-poster"
                 alt={original_title}
                 src={
-                  "http://image.tmdb.org/t/p/w" + this.props.width + poster_path
+                  "https://image.tmdb.org/t/p/w" +
+                  this.props.width +
+                  poster_path
                 }
               />
             </Link>

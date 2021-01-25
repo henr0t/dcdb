@@ -22,7 +22,7 @@ class MovieBackdrop extends React.Component {
             <img
               className="d-block w-100"
               alt={original_title}
-              src={"http://image.tmdb.org/t/p/w1280" + backdrop_path}
+              src={"https://image.tmdb.org/t/p/w1280" + backdrop_path}
             />
           </Link>
         </React.Fragment>

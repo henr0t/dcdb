@@ -17,7 +17,7 @@ const MovieCast = (props) => {
               <img
                 className="cast-image"
                 alt={cast.name}
-                src={"http://image.tmdb.org/t/p/w200" + cast.profile_path}
+                src={"https://image.tmdb.org/t/p/w200" + cast.profile_path}
               />
             )}
           </div>

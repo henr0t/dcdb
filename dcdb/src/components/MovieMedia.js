@@ -6,12 +6,12 @@ const MovieMedia = (props) => {
     return (
       <a
         key={props.children.indexOf(media)}
-        href={"http://image.tmdb.org/t/p/original" + media.file_path}
+        href={"https://image.tmdb.org/t/p/original" + media.file_path}
       >
         <img
           className="movie-media"
           alt={"image" + (props.children.indexOf(media) + 1)}
-          src={"http://image.tmdb.org/t/p/w300" + media.file_path}
+          src={"https://image.tmdb.org/t/p/w300" + media.file_path}
         />
       </a>
     );
