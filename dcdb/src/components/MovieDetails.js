@@ -8,6 +8,7 @@ const MovieDetails = ({ movies, crew }) => {
     release_date,
     overview,
     poster_path,
+    backdrop_path,
     tagline,
     runtime,
     genres,
@@ -49,17 +50,25 @@ const MovieDetails = ({ movies, crew }) => {
   return (
     <div>
       <div className="movie-segment">
+        <picture className="banner-overlay">
+          <img
+            className="moviepage-backdrop"
+            alt={original_title}
+            src={"http://image.tmdb.org/t/p/w300" + backdrop_path}
+          />
+        </picture>
         <div className="movie-segment1">
-          <picture className="overlay">
+          <picture className="poster-overlay">
             <a href={"http://image.tmdb.org/t/p/original" + poster_path}>
               <img
-                className="movie-poster"
+                className="moviepage-poster"
                 alt={original_title}
                 src={"http://image.tmdb.org/t/p/w300" + poster_path}
               />
               <div className="expand-text">Click to expand</div>
             </a>
           </picture>
+
           <div className="movie-synopsis">
             <h1>
               {original_title} <small>{"(" + releaseYear + ")"}</small>

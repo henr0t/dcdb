@@ -1,5 +1,5 @@
 import React from "react";
-import local from "../api/local";
+import filmapp from "../api/filmapp";
 
 class NewUser extends React.Component {
   state = { createSuccess: false };
@@ -13,7 +13,7 @@ class NewUser extends React.Component {
       email: this.email,
     };
 
-    local
+    filmapp
       .post("/api/v1/user/new/" + this.props.role, data)
       .then((response) => {
         this.setState({ createSuccess: true });

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import local from "../api/local";
+import filmapp from "../api/filmapp";
 import data from "../data/movieData";
 import { Modal } from "react-bootstrap";
 import NewUser from "./NewUser";
@@ -11,7 +11,7 @@ function addToDatabase() {
       tmdbId: movie.movieId,
     };
 
-    local
+    filmapp
       .post("/api/v1/film/new", data)
       .then((response) => {
         console.log(response);

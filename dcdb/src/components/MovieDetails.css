@@ -1,9 +1,13 @@
-.movie-poster {
-  max-width: 300px;
+.moviepage-poster {
+  width: 300px;
   border: solid #dfdfdf;
   border-radius: 20px;
   border-width: thin;
   transition: 0.5s ease;
+}
+
+.moviepage-backdrop {
+  display: none;
 }
 
 .expand-text {
@@ -11,7 +15,7 @@
   font-size: 14px;
 }
 
-.movie-poster:hover {
+.moviepage-poster:hover {
   filter: brightness(50%);
 }
 
@@ -51,4 +55,38 @@ hr.title {
 
 .added-to-watchlist:focus {
   outline: none;
+}
+
+@media (max-width: 960px) {
+  .moviepage-poster {
+    width: 250px;
+  }
+}
+
+@media (max-width: 800px) {
+  .poster-overlay {
+    display: none;
+  }
+
+  .moviepage-backdrop {
+    display: block;
+    width: 100%;
+    border-radius: 10px;
+    -webkit-mask-image: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      from(rgba(0, 0, 0, 1)),
+      to(rgba(0, 0, 0, 0))
+    );
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  }
+
+  .movie-synopsis {
+    margin-left: 0px;
+    padding: 10px 0px 0px 0px;
+  }
+}
+
+@media (max-width: 600px) {
 }

@@ -179,6 +179,22 @@ a {
   animation-duration: 1s;
 }
 
+@media (max-width: 960px) {
+}
+
+@media (max-width: 800px) {
+  .movie-segment1 {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 600px) {
+  .movie-poster {
+    width: 102px;
+    height: 153px;
+  }
+}
+
 @keyframes fadein {
   from {
     opacity: 0;

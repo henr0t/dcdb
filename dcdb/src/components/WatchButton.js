@@ -1,5 +1,5 @@
 import React from "react";
-import local from "../api/local";
+import filmapp from "../api/filmapp";
 import AuthContext from "./AuthContext.js";
 
 class WatchButton extends React.Component {
@@ -7,7 +7,7 @@ class WatchButton extends React.Component {
 
   addToWatchlist() {
     if (this.state.watchlist) {
-      local.put(
+      filmapp.put(
         "/api/v1/film/" +
           this.props.children +
           "/" +
@@ -19,7 +19,7 @@ class WatchButton extends React.Component {
 
   removeFromWatchlist() {
     if (this.state.watchlist) {
-      local.put(
+      filmapp.put(
         "/api/v1/film/" +
           this.props.children +
           "/" +
@@ -50,7 +50,7 @@ class WatchButton extends React.Component {
   async requestUserWatchlist() {
     if (!localStorage.getItem("userid") && !localStorage.getItem("token")) {
     } else {
-      await local
+      await filmapp
         .get("/api/v1/user/" + localStorage.getItem("userid") + "/watchlist")
         .then((response) => {
           this.setState({ watchlist: response.data });
