@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const localAPI = axios.create({
-  baseURL: "https://dcdb-backend.herokuapp.com/",
+  baseURL: "http://localhost:8082",
   headers: {},
 });
 
