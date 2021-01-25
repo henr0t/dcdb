@@ -9,7 +9,7 @@ export const Home = () => (
     <h3 className="underline-header">Welcome</h3>
     <div className="segment text-box">
       <h4>
-        Find all the information about DC Films and track the movies you have
+        Find all the information about DC Films and track movies you have
         watched!
       </h4>
     </div>

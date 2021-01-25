@@ -2,7 +2,7 @@ import React from "react";
 import Watchlist from "../components/Watchlist";
 import UserDetails from "../components/UserDetails";
 import AdminTools from "../components/AdminTools";
-import local from "../api/local";
+import filmapp from "../api/filmapp";
 import AuthContext from "../components/AuthContext.js";
 import { Link } from "react-router-dom";
 
@@ -12,7 +12,7 @@ class Profile extends React.Component {
   componentDidMount() {
     if (!localStorage.getItem("userid") && !localStorage.getItem("token")) {
     } else {
-      local
+      filmapp
         .get("/api/v1/user/" + localStorage.getItem("userid"))
         .then((response) => {
           this.setState({

@@ -1,0 +1,32 @@
+.movie-poster {
+  margin: 0px 5px 10px 5px;
+  width: 214px;
+  height: 321px;
+  border-radius: 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+.movie-poster:hover {
+  transform: scale(1.04);
+}
+
+@media (max-width: 960px) {
+  .movie-poster {
+    width: 236px;
+    height: 354px;
+  }
+}
+
+@media (max-width: 800px) {
+  .movie-poster {
+    width: 169px;
+    height: 253px;
+  }
+}
+
+@media (max-width: 600px) {
+  .movie-poster {
+    width: 102px;
+    height: 153px;
+  }
+}

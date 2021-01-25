@@ -1,6 +1,6 @@
 import "./Login.css";
 import React from "react";
-import local from "../api/local";
+import filmapp from "../api/filmapp";
 import { Redirect } from "react-router-dom";
 import AuthContext from "./AuthContext.js";
 
@@ -15,7 +15,7 @@ class Login extends React.Component {
       password: this.password,
     };
 
-    local
+    filmapp
       .post("/login", data)
       .then((response) => {
         localStorage.setItem("token", response.headers.authorization);
